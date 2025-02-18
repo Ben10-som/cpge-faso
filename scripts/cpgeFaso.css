@@ -1,0 +1,564 @@
+:root {
+    --primary-color: #007BFF; /* Bleu vif */
+    --secondary-color: #0056b3; /* Bleu foncé */
+    --highlight-color: #FFFFFF; /* Blanc */
+    --neutral-color: #F5F5F5; /* Blanc cassé */
+    --white-color: #FFFFFF; /* Blanc pur */
+}
+@media (max-width: 768px) {
+    .temoignages {
+        flex-direction: column;
+    }
+
+    .temoignage {
+        width: 90%; /* Réduit la taille sur mobile */
+        margin: 10px auto;
+    }
+
+    .photo-profil {
+        float: none;
+        margin: 0 auto 20px;
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .photo-profil {
+        width: 150px; /* Taille réduite pour les petits écrans */
+    }
+}
+
+/* Global */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--neutral-color);
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+/* Menu principal */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--white-color);
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Présentation */
+.presentation {
+    margin-top: 80px;
+    text-align: center;
+    padding: 40px;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.presentation h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.presentation p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin: 10px 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Livres */
+.livre {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.document {
+    background-color: var(--white-color);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.document img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.document a {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.document:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.document a:hover {
+    color: var(--highlight-color);
+}
+
+/* Boutons et liens */
+a, button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+a:hover, button:hover {
+    background: var(--highlight-color);
+    color: var(--secondary-color);
+}
+
+/* Pied de page */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Accueil */
+.accueil {
+    background-color: var(--neutral-color);
+    padding: 80px 20px;
+}
+
+.conteneur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Texte */
+.texte {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+}
+
+.texte h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.texte p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.texte .cta {
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.texte .cta:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Visuel */
+.visuel {
+    flex: 1;
+    text-align: center;
+   
+}
+
+.visuel img {
+    width: 100%; /* Ajustez cette valeur pour augmenter la taille */
+    max-width: 600px; /* Augmentez cette valeur pour permettre une taille plus grande */
+    height: auto; /* Garde le ratio de l'image */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visuel img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .conteneur {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texte {
+        text-align: center;
+    }
+}
+
+/* Section Accueil */
+.accueil {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') center/cover no-repeat;
+    color: var(--white-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.accueil h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.accueil .cta {
+    background: var(--highlight-color);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+
+
+.stat h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.stat p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+.visuel img {
+    max-width: 60%; /* Réduit à 60% de la largeur parent */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px; /* Optionnel : coins arrondis pour un style moderne */
+}
+.photo-profil {
+    float: right;
+    margin-left: 20px; /* Espacement à gauche */
+    margin-top: -20px; /* Déplace la photo vers le haut */
+    width: 200px; /* Taille ajustée */
+    height: auto;
+    border-radius: 50%; /* Cercle esthétique */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.temoignage {
+    flex: 1 0 80%; /* Prend 80% de la largeur du carrousel */
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.carrousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.presentation-contenu {
+    margin-top: 30px; /* Ajoute de l'espace pour le conteneur */
+}
+.presentation {
+    display: flex; /* Met tout sur une ligne */
+    align-items: center; /* Aligne verticalement */
+    gap: 20px; /* Espacement entre les éléments */
+    padding: 40px; 
+    margin: 20px auto; 
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    border-radius: 5px; /* Coins arrondis */
+    max-width: 900px; /* Largeur maximale pour centrer */
+    min-height: 280px; /* Hauteur minimale augmentée */
+}
+
+.presentation h1 {
+    flex-shrink: 0; /* Empêche le titre de rétrécir */
+    font-size: 28px; /* Taille du titre */
+}
+
+.presentation-contenu {
+    display: flex; /* Place la photo et le texte sur une ligne */
+    align-items: center; /* Aligne verticalement */
+}
+
+.photo-profil {
+    width: 250px; /* Ajuste la taille de la photo */
+    height: 250px; /* Rend la photo carrée */
+    border-radius: 50%; /* Cercle parfait */
+    margin-right: 20px; /* Espacement avec le texte */
+}
+@media (max-width: 768px) {
+    .presentation {
+        flex-direction: column; /* Aligne le contenu en colonne */
+        align-items: flex-start;
+    }
+
+    .photo-profil {
+        margin-right: 0;
+        margin-bottom: 10px; /* Ajoute un espacement sous la photo */
+    }
+}
+.partage-experience {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.partage-experience h2 {
+    font-size: 2.5rem;
+    color: #007BFF;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #0026ff;
+    display: inline-block;
+}
+
+.carrousel {
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.temoignages {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.temoignage {
+    min-width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.temoignage:hover {
+    transform: scale(1);
+}
+
+.temoignage .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #FF6F61, #fcfbfd); /* Dégradé moderne */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre pour un effet 3D */
+    transition: all 0.3s ease-in-out;
+    z-index: 100; /* Assure que les flèches sont au-dessus des autres éléments */
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.1); /* Effet de zoom au survol */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Accentue l'ombre au survol */
+}
+
+.arrow:active {
+    transform: translateY(-50%) scale(0.9); /* Effet de clic */
+}
+
+.arrow::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+/* Flèche gauche */
+.arrow-left::before {
+    border-width: 10px 15px 10px 0; /* Triangle */
+    border-color: transparent white transparent transparent; /* Couleur de la flèche */
+}
+
+/* Flèche droite */
+.arrow-right::before {
+    border-width: 10px 0 10px 15px; /* Triangle inversé */
+    border-color: transparent transparent transparent white; /* Couleur de la flèche */
+}
+
+/* Position des flèches */
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+
+
+
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.indicators div {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicators div.active {
+    background-color: #007BFF;
+}
+
+/* Section À propos de moi */
+#a-propos {
+    background-color: var(--white-color);
+    padding: 40px 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+}
+
+#a-propos h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+#a-propos .presentation-contenu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#a-propos .photo-profil {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#a-propos p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    #a-propos .presentation-contenu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #a-propos .photo-profil {
+        margin-bottom: 20px;
+    }
+}
