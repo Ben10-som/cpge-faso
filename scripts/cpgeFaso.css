@@ -5,6 +5,7 @@
     --neutral-color: #F5F5F5; /* Blanc cassé */
     --white-color: #FFFFFF; /* Blanc pur */
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 @media (max-width: 768px) {
     .temoignages {
         flex-direction: column;
@@ -27,6 +28,9 @@
     }
 }
 
+
+
+
 /* Global */
 body {
     margin: 0;
@@ -37,6 +41,16 @@ body {
 }
 
 /* Menu principal */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--white-color);
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .menu {
     position: fixed;
     top: 0;
@@ -83,6 +97,7 @@ body {
     background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 200px;
 }
 
 .presentation h1 {
@@ -165,8 +180,12 @@ a, button {
     color: var(--white-color);
 }
 
-a:hover, button:hover {
+ button:hover {
     background: var(--highlight-color);
+    color: var(--secondary-color);
+}
+a:hover {
+    background: white;
     color: var(--secondary-color);
 }
 
@@ -339,7 +358,8 @@ footer {
     align-items: center;
 }
 .presentation-contenu {
-    margin-top: 30px; /* Ajoute de l'espace pour le conteneur */
+    margin-top: 30px;
+    /* Ajoute de l'espace pour le conteneur */
 }
 .presentation {
     display: flex; /* Met tout sur une ligne */
@@ -560,5 +580,44 @@ footer {
 
     #a-propos .photo-profil {
         margin-bottom: 20px;
+    }
+}
+
+.concours-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.concours-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.concours-card:hover {
+    transform: translateY(-5px);
+}
+
+.concours-card h3 {
+    margin-top: 0;
+    color: #007BFF;
+}
+
+.concours-card p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .concours-list {
+        flex-direction: column;
+        align-items: center;
     }
 }
