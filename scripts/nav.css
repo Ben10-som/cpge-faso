@@ -1,0 +1,125 @@
+:root {
+    --primary-color: #007BFF; /* Bleu vif */
+    --secondary-color: #0056b3; /* Bleu foncé */
+    --highlight-color: #FFFFFF; /* Blanc */
+    --neutral-color: #F5F5F5; /* Blanc cassé */
+    --white-color: #FFFFFF; /* Blanc pur */
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    width:100%;
+    height:80px;
+    left:0;
+
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--white-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+.navbar ul{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 80px;
+}
+.navbar ul li{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    line-height:40px;
+    margin: 0 20px;;
+}
+.navbar ul li a{
+
+    color: var(--white-color);
+    font-size:16px;
+    transition: all 0.5s ease;
+    padding: 10px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--primary-color);
+}
+.navbar ul li a:hover{
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+    transform: scale(1.1);
+
+}
+.checkbtn {
+    transition: all 0.3s ease;
+    font-size:30px;
+    color:--white-color;
+    float:left;
+    line-height: 80px;
+    margin-left:40px;
+    cursor:pointer;
+    display:none;
+    position:relative;
+    z-index: 100;
+}
+
+
+#check{
+
+   display:none;
+}
+@media (max-width:768px){
+    .navbar ul li{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    line-height:40px;
+    margin: 0 15px;;
+}
+}
+@media (max-width:500px){
+    .navbar{
+        z-index: 5;
+    }
+    .checkbtn{
+        display:block;
+        z-index: 100;
+    }
+    .navbar ul{
+        position:fixed;
+        margin-top: 60px;
+        width:100%;
+        height:25vh;
+        background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+        top:-100%;
+        text-align:start;
+        transition:all .5s ease-out;
+        display:block;
+
+
+    }
+    .navbar li{
+        display:block;
+        margin:40px 0;
+        line-height:30px; 
+
+
+
+    }
+    .navbar ul li a{
+        font-size: 16px;
+        border-radius:0%;
+        color:rgb(236, 236, 245);
+        background:none;
+
+    }
+    .navbar ul li a:hover{
+        background-color:transparent;
+        color:navy;
+
+    }
+    #check:checked ~ ul {
+        top:0;
+    }
+}

@@ -41,7 +41,7 @@ body {
 }
 
 /* Menu principal */
-.menu {
+/*.menu {
     position: fixed;
     top: 0;
     width: 100%;
@@ -87,7 +87,7 @@ body {
     background-color: var(--highlight-color);
     color: var(--secondary-color);
     transform: scale(1.1);
-}
+}*/
 
 /* Présentation */
 .presentation {

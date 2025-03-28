@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bibliothèque</title>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="cpgeFaso.css">
+  <title>Bibliothèque</title>
+
+
 </head>
 <body>
-  <div class="menu">
-    <ul class="liste_entete">
-      <li><a href="cpgeFaso.html">Accueil</a></li>
-      <li><a href="bibliotheque.html" class="active">Bibliothèque</a></li>
-      <li><a href="liens.html">Liens utiles</a></li>
-      <li><a href="concours.html">Concours</a></li>
-    </ul>
-  </div>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
 
   <section class="accueil">
     <div class="conteneur">
