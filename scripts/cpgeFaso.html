@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="cpgeFaso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
     <title>CPGE Faso</title>
     <style>
@@ -72,16 +74,16 @@
 </head>
 <body>
 
-    <header class="menu">
-        <div id="navbar-placeholder"></div>
-        <script>
-          fetch("navbar.html")
-            .then((response) => response.text())
-            .then((data) => {
-              document.getElementById("navbar-placeholder").innerHTML = data;
-            });
-        </script>
-    </header>
+
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+
 
     <main class="accueil">
         <div class="conteneur">
@@ -98,15 +100,15 @@
     </main>
     <h1 style="text-align: center;" >
     À propos de nous 
-</h1>
-<section class="presentation" id="a-propos">
+    </h1>
+    <section class="presentation" id="a-propos">
    
-    <div class="presentation-contenu">
-        <img src="../images/moi.jpg" alt="Votre Photo" class="photo-profil">
-        <p>Je suis un passionné des classes préparatoires 
-        et je m'engage à aider les étudiants dans leur parcours académique...</p>
-    </div>
-</section>
+        <div class="presentation-contenu">
+            <img src="../images/moi.jpg" alt="Votre Photo" class="photo-profil">
+            <p>Je suis un passionné des classes préparatoires 
+            et je m'engage à aider les étudiants dans leur parcours académique...</p>
+        </div>
+    </section>    
 
     <section class="partage-experience" id="partage-experience">
         <h2>Partage d'expérience</h2>
@@ -162,35 +164,32 @@
         }
     </script>
 
-</body>
-</html>
 
 
 
-<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-	<div class="carousel-inner">
-	  <!-- Première image -->
-	  <div class="carousel-item active">
-		<img src="images/banner.jpg" class="d-block w-100" alt="Image 1">
-	  </div>
-	   <!-- Deuxième image -->
-	   <div class="carousel-item">
-		<img src="images/epo2.jpg" class="d-block w-100" alt="Image 2">
-	  </div>
-	  <!-- Deuxième image -->
-	  <div class="carousel-item">
-		<img src="images/2ie.jpg" class="d-block w-100" alt="Image 2">
-	  </div>
-	  <!-- Troisième image -->
-	  <div class="carousel-item">
-		<img src="images/epo1.jpg" class="d-block w-100" alt="Image 3">
-	  </div>
-	</div>
-  
-	
-  </div>
+
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+	    <div class="carousel-inner">
+	          <!-- Première image -->
+	          <div class="carousel-item active">
+		        <img src="images/banner.jpg" class="d-block w-100" alt="Image 1">
+	          </div>
+	           <!-- Deuxième image -->
+	           <div class="carousel-item">
+		        <img src="images/epo2.jpg" class="d-block w-100" alt="Image 2">
+	          </div>
+	          <!-- Deuxième image -->
+	          <div class="carousel-item">
+		        <img src="images/2ie.jpg" class="d-block w-100" alt="Image 2">
+	          </div>
+	          <!-- Troisième image -->
+	          <div class="carousel-item">
+		        <img src="images/epo1.jpg" class="d-block w-100" alt="Image 3">
+	          </div>
+	        </div>
+    </div>
   
   <!-- Ajout de Bootstrap (nécessaire pour le carrousel) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+</body>
+</html>
