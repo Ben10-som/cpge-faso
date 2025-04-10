@@ -152,14 +152,119 @@ img {
 }
 
 /* Banner and Hero Elements */
-.banner {
+
+/* Banner Corrections */
+/* Banner - Version corrigée */
+#banner, .banner {
   width: 100%;
-  height: 100%;
-  min-height: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
-  color: #fff;
+  overflow: hidden;
 }
 
+#bannerCarousel {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#bannerCarousel .item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#bannerCarousel .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hauteurs responsives */
+#bannerCarousel, 
+#bannerCarousel .item {
+  height: 80vh;
+  min-height: 400px;
+}
+
+@media (max-width: 992px) {
+  #bannerCarousel, 
+  #bannerCarousel .item {
+    height: 60vh;
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  #bannerCarousel, 
+  #bannerCarousel .item {
+    height: 50vh;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  #bannerCarousel, 
+  #bannerCarousel .item {
+    height: 40vh;
+    min-height: 250px;
+  }
+}
+
+.carousel-inner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-inner .item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.full-width-img {
+  width: 100%;
+  min-height: 300px; /* Hauteur minimale */
+  object-fit: cover;
+  display: block;
+}
+
+/* Ajustements responsive */
+@media (min-width: 992px) {
+  .full-width-img {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 991px) {
+  .full-width-img {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .full-width-img {
+    height: 50vh;
+    min-height: 250px;
+  }
+  
+  /* Suppression de l'espace entre sections */
+  .about-section {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .full-width-img {
+    height: 45vh;
+    min-height: 200px;
+  }
+}
 .banner-image {
   vertical-align: middle;
   min-height: 100%;
@@ -1484,4 +1589,89 @@ textarea {
 .container-fluid, .container {
   padding-left: 0;
   padding-right: 0;
+}
+/*
+/* Corrections responsive pour l'espace entre bannière et section */
+@media (max-width: 991px) {
+  #bannerCarousel {
+    height: auto !important;
+  }
+  
+  .full-width-carousel .item {
+    height: auto;
+    min-height: 250px;
+  }
+  
+  .about-section {
+    padding-top: 20px !important;
+  }
+}
+
+/* Correction spécifique pour très petits écrans */
+@media (max-width: 480px) {
+  .full-width-carousel {
+    max-height: 50vh;
+  }
+  
+  .full-width-carousel .item img {
+    min-height: 200px;
+  }
+}
+
+/* Corrections finales pour la bannière */
+#bannerCarousel {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#bannerCarousel .item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.6s ease;
+}
+
+#bannerCarousel .item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Ajustements responsive */
+@media (min-width: 992px) {
+  #bannerCarousel .item {
+      height: 80vh;
+  }
+  #bannerCarousel .item img {
+      height: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  #bannerCarousel .item {
+      height: 60vh;
+  }
+}
+
+@media (max-width: 767px) {
+  #bannerCarousel .item {
+      height: 50vh;
+      min-height: 300px;
+  }
+  
+  /* Suppression de l'espace entre sections */
+  .about-section {
+      margin-top: 0 !important;
+      padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #bannerCarousel .item {
+      height: 45vh;
+      min-height: 250px;
+  }
 }
