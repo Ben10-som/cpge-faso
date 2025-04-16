@@ -318,8 +318,8 @@
           const groups = document.querySelectorAll(".group");
           groups.forEach((group) => {
             group.style.display = group.id.startsWith("group-1")
-              ? "block"
-              : "none";
+              ? "flex"
+              : "none"; // Use "flex" to preserve alignment
           });
         });
 
@@ -329,8 +329,8 @@
           const groups = document.querySelectorAll(".group");
           groups.forEach((group) => {
             group.style.display = group.id.startsWith("group-2")
-              ? "block"
-              : "none";
+              ? "flex"
+              : "none"; // Use "flex" to preserve alignment
           });
         });
 

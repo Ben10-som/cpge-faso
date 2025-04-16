@@ -130,7 +130,7 @@ body {
 .document {
   max-width: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
@@ -154,12 +154,19 @@ body {
 }
 
 .document a {
+  display: inline-block; /* Ensure the link behaves like a block for styling */
   text-align: center;
   font-size: 0.95em;
-  color: #000;
+  color: #fff; /* White text color */
   text-decoration: none;
+  background-color: #007BFF; /* Blue background */
+  padding: 10px 15px; /* Add padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
 }
 
 .document a:hover {
-  text-decoration: underline;
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the link on hover */
+  text-decoration: none; /* Ensure no underline on hover */
 }
