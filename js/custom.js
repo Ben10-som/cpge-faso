@@ -21,14 +21,20 @@
                 }
             }
             
-            // Ajustement unique de la hauteur du carousel
+            // Ajustement initial du carousel
             adjustCarouselHeight();
+            
+            // Initialiser les carousels
+            initCarousels();
         });
         
-        $('#quote-carousel, #bannerCarousel').carousel({
-            pause: true,
-            interval: 4000
-        });
+        // Initialisation des carousels
+        function initCarousels() {
+            $('#quote-carousel, #bannerCarousel').carousel({
+                pause: true,
+                interval: 4000
+            });
+        }
 
         //Scroll Spy
         if($(".scrollspy").length>0) {
@@ -98,9 +104,50 @@
             });
         }
 
-        // Ajustement responsive du carousel
-       
-
-        $(window).resize(adjustCarouselHeight);
+        // Gestion du redimensionnement avec debounce
+        var resizeTimer;
+        $(window).resize(function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                adjustCarouselHeight();
+                $('#bannerCarousel').carousel('pause').carousel('next');
+            }, 250);
+        });
     });
+    
+    // Fonction d'ajustement du carousel
+    function adjustCarouselHeight() {
+        // Désactiver temporairement les transitions
+        $('#bannerCarousel').css('transition', 'none');
+        
+        // Déterminer la hauteur en fonction de la largeur
+        var windowWidth = $(window).width();
+        var newHeight;
+        
+        if (windowWidth >= 992) {
+            newHeight = '80vh'; // Desktop
+        } else if (windowWidth >= 768) {
+            newHeight = '60vh'; // Tablette paysage
+        } else if (windowWidth >= 480) {
+            newHeight = '50vh'; // Tablette portrait/grands mobiles
+        } else {
+            newHeight = '40vh'; // Petits mobiles
+        }
+        
+        // Appliquer la nouvelle hauteur
+        $('#bannerCarousel, #bannerCarousel .item').css('height', newHeight);
+        
+        // Ajuster les images
+        $('#bannerCarousel .item img').css({
+            'width': '100%',
+            'height': '100%',
+            'object-fit': 'cover',
+            'object-position': 'center'
+        });
+        
+        // Réactiver les transitions après un court délai
+        setTimeout(function() {
+            $('#bannerCarousel').css('transition', '');
+        }, 50);
+    }
 })(jQuery);
