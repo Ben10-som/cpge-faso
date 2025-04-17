@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="card.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card__container">
+
+      <article class="card__article">
+        <img src="/images/EPO.jpeg" alt="image" class="card__img">
+        <div class="card__data">
+          <span class="card__description">Ecole Polytechnique de Ouagadougou</span>
+          <h2 class="card__title">L'exélence au service de la nation</h2>
+          <a href="#" class="card__button" 
+             tabindex="0"
+             role="button"
+             data-bs-toggle="popover"
+             data-bs-trigger="focus"
+             title="Plus d'infos"
+             data-bs-content="Ceci est un popover, génial n'est-ce pas !">
+             En savoir plus
+          </a>
+        </div>
+      </article>
+
+      <article class="card__article">
+        <img src="/images/central_casa.jpg" alt="image" class="card__img">
+        <div class="card__data">
+          <span class="card__description">Ecole centrale Casablanca</span>
+          <h2 class="card__title">Devenez des ingénieurs généralistes, la polyvalence dans toute sa splendeur</h2>
+          <a href="#" class="card__button"
+             tabindex="0"
+             role="button"
+             data-bs-toggle="popover"
+             data-bs-trigger="focus"
+             title="Plus d'infos"
+             data-bs-content="Ceci est un popover, génial n'est-ce pas !"
+            >
+             
+             En savoir plus
+          </a>
+        </div>
+      </article>
+
+      <article class="card__article">
+        <img src="/images/issp.jpg" alt="image" class="card__img">
+        <div class="card__data">
+          <span class="card__description">Institut Supérieur des Sciences de la population</span>
+          <h2 class="card__title">Les statisques et l'analyse des données, devenez Ingénieur statisticien économiste</h2>
+          <a href="#" class="card__button"
+             tabindex="0"
+             role="button"
+             data-bs-toggle="popover"
+             data-bs-trigger="focus"
+             title="Plus d'infos"
+             data-bs-content="Ceci est un popover, génial n'est-ce pas !">
+             En savoir plus
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Activation des popovers Bootstrap -->
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    [...popoverTriggerList].forEach(el => new bootstrap.Popover(el));
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
