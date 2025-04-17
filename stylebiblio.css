@@ -9,7 +9,7 @@ body {
   
   /* Section Accueil */
   .accueil {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/bibliotheque.jpg') center/cover no-repeat;
     color: var(--white-color);
     text-align: center;
     padding: 100px 20px;
@@ -22,16 +22,25 @@ body {
   }
   
   .accueil .cta {
-    background-color: #ddd;
-    background: var(--highlight-color);
+    background-color: #fff;
+    color: #007BFF;
     padding: 15px 30px;
     border-radius: 50px;
     text-transform: uppercase;
   }
   
   .accueil .cta:hover {
-    background-color: var(--primary-color);
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;    
     transform: scale(1.1);
+  }
+  .buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap:4px;
+    max-width: 500px;
+
   }
   
   /* Conteneur */
@@ -116,7 +125,7 @@ body {
     gap: 15px;
     align-items: flex-start;
     padding: 15px;
-  
+   justify-content: center;
     border: 2px solid black;
     margin: 10px 0;
     width: 100%;
