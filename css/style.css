@@ -1161,6 +1161,9 @@ textarea {
 
 .footer-widget {
     margin-bottom: 30px;
+/*    display:flex;
+    flex-direction: row;*/
+
 }
 
 .footer-widget p {
