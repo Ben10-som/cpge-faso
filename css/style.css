@@ -1,7 +1,11 @@
 /* Main Imports and Base Styles */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300);
-
+/* Ajouter en haut du CSS */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /* Base styles */
 html, body {
   height: 100%;
@@ -162,33 +166,25 @@ img {
   position: relative;
   overflow: hidden;
 }
-
-#bannerCarousel {
+/* Banner Carousel - Version corrigée et simplifiée */
+#bannerCarousel, 
+#bannerCarousel .item {
   width: 100%;
+  height: 80vh; /* Hauteur de base */
+  min-height: 400px;
   margin: 0;
   padding: 0;
   overflow: hidden;
-}
-
-#bannerCarousel .item {
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 #bannerCarousel .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Hauteurs responsives */
-#bannerCarousel, 
-#bannerCarousel .item {
-  height: 80vh;
-  min-height: 400px;
-}
-
+/* Ajustements responsive */
 @media (max-width: 992px) {
   #bannerCarousel, 
   #bannerCarousel .item {
@@ -213,44 +209,28 @@ img {
   }
 }
 
-.carousel-inner {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.carousel-inner .item {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
+/* Responsivité des images en full width */
 .full-width-img {
   width: 100%;
-  min-height: 300px; /* Hauteur minimale */
-  object-fit: cover;
+  height: auto;
   display: block;
+  object-fit: cover;
 }
 
-/* Ajustements responsive */
-@media (min-width: 992px) {
-  .full-width-img {
-    height: 80vh;
-  }
+/* Pour éviter les débordements dans le carousel */
+.carousel-inner > .item > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-@media (max-width: 991px) {
-  .full-width-img {
-    height: 60vh;
-  }
+/* Optionnel : fixer une hauteur au carousel si besoin */
+.carousel-inner .item {
+  max-height: 500px; /* ou la hauteur que tu veux */
+  overflow: hidden;
 }
 
-@media (max-width: 767px) {
-  .full-width-img {
-    height: 50vh;
-    min-height: 250px;
-  }
   
   /* Suppression de l'espace entre sections */
   .about-section {
@@ -1105,27 +1085,30 @@ textarea {
 }
 
 /* Responsive */
+
 @media (max-width: 991px) {
-    .contact-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 25px 15px;
-    }
-    
-    .contact-icon {
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
+  .contact-horizontal {
+    padding: 30px 15px;
+  }
+  
+  .contact-box {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    margin: 0 auto 15px;
+  }
 }
 
 @media (max-width: 767px) {
-    .contact-horizontal {
-        padding: 30px 15px;
-    }
-    
-    .contact-box {
-        margin-bottom: 20px;
-    }
+  .contact-section {
+    padding: 40px 0;
+  }
+  
+  .contact-horizontal .row > div {
+    margin-bottom: 20px;
+  }
 }
 /* ==================== */
 /* FOOTER */
@@ -1234,33 +1217,66 @@ textarea {
 
 /* Responsive */
 @media (max-width: 991px) {
-    .contact-info {
-        padding-left: 0;
-        margin-top: 40px;
-    }
-    
-    .footer-widget {
-        margin-bottom: 40px;
-    }
+  .footer-main {
+    padding: 40px 0;
+  }
+  
+  .footer-widget {
+    margin-bottom: 30px;
+  }
+  
+  .footer-title {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 767px) {
-    .footer-bottom .copyright,
-    .footer-bottom .footer-menu {
-        text-align: center;
-    }
-    
-    .footer-menu li {
-        margin: 0 10px;
-    }
-    
-    .contact-item {
-        flex-direction: column;
-    }
-    
-    .contact-icon {
-        margin-bottom: 15px;
-    }
+  .footer-bottom .copyright,
+  .footer-bottom .footer-menu {
+    text-align: center;
+  }
+  
+  .footer-menu li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .newsletter-form .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 480px) {
+  /* Témoignages */
+  .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* Contact */
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+  }
+  
+  /* Footer */
+  .footer-widget {
+    text-align: center;
+  }
+  
+  .footer-logo {
+    margin: 0 auto;
+  }
+  
+  .footer-menu li {
+    margin: 0 5px;
+    font-size: 12px;
+  }
 }
 /* Animation */
 .no-view {
@@ -1587,7 +1603,24 @@ textarea {
         font-size: 18px;
     }
 }
-
+@media (max-width: 767px) {
+  .testimonials-section {
+    padding: 40px 0;
+  }
+  
+  .testimonial-card {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+  
+  .testimonial-text blockquote {
+    font-size: 16px;
+  }
+  
+  .testimonial-text footer strong {
+    font-size: 16px;
+  }
+}
 /* Fix Bootstrap container padding */
 .container-fluid, .container {
   padding-left: 0;
