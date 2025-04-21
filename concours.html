@@ -6,9 +6,10 @@
     <meta name="description" content="Responsive HTML5 Template">
     <meta name="author" content="webthemez">
     <link rel="shortcut icon" href="images/eab.jpg">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">   
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
+
     <link href="css/style.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="card.css">  
     <title>Document</title>
 </head>
 <body class="no-trans">
@@ -120,7 +121,7 @@
     <div class="master">
         <div class="card__container">
             <article class="card__article">
-                <img src="images/2ie.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/epo.jpg" alt="image" class="card__img">
                 <div class="card__data">
                     <h2 class="card__title">ECOLE POLYTECHNIQUE DE OUAGADOUGOU (EPO)</h2>
                     <span class="card__description">* FORME DES INGENIEURS DE CONCEPTIONS DANS PLUSIEURS DOMAINES
@@ -140,7 +141,11 @@
                 <div class="card__data">
                     <span class="card__description">Poon Hill, Nepal</span>
                     <h2 class="card__title">Starry Night</h2>
-                    <a href="#" class="card__button">Read More</a>
+                    <a href="#" onclick="togglePopover(event)">Voir le concours</a>
+                       <div id="popover" style="display: none; position: absolute; background: #fff; border: 1px solid #ccc; padding: 10px;">
+                        Voici les infos du concours !
+                    </div>
+
                 </div>
             </article>
 
@@ -220,7 +225,7 @@
             <br>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/inphb.png" alt="image" class="card__img">
                 <div class="card__data">
                     <h2 class="card__title">INPHB </h2>
                     <span class="card__description">Pays: Cote-d'Ivoire
@@ -238,55 +243,61 @@
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/cc.jpeg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">CENTRALE CASABLANCA</h2>
+                    <span class="card__description">something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/esmt.jpeg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">ESMT</h2>
+                    <span class="card__description">Something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/ise.jpg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">ISE</h2>
+                    <span class="card__description">something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/ens.jpg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">ENS</h2>
+                    <span class="card__description">something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/um6p.jpeg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">UM6P</h2>
+                    <span class="card__description">something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
 
             <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
+                <img src="images/imgccs/x_polytech.jpg" alt="image" class="card__img">
                 <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
+                    <h2 class="card__title">X-POLYTECHNIQUE</h2>
+                    <span class="card__description">something</span>
+
                     <a href="#" class="card__button">Read More</a>
                 </div>
             </article>
@@ -375,6 +386,19 @@
     </div>
     <!-- cartes end -->
     <!-- JAVASCRIPT GENERAL-->
+     <script>
+        function togglePopover(e) {
+              e.preventDefault();
+              const pop = document.getElementById('popover');
+              const link = e.target;
+              const rect = link.getBoundingClientRect();
+
+              pop.style.left = `${rect.left}px`;
+              pop.style.top = `${rect.bottom + window.scrollY}px`;
+              pop.style.display = (pop.style.display === 'none' || pop.style.display === '') ? 'block' : 'none';
+            }
+
+     </script>
     <script type="text/javascript" src="plugins/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="plugins/modernizr.js"></script>

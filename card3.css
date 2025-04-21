@@ -1,0 +1,12 @@
+/* style.css */
+
+.school-img {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+  }
+  
+  .school-img.loaded {
+    transform: scale(1);
+    opacity: 1;
+ }
