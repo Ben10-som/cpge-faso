@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliothèque de concours</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7fdfd;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0206ff;
+      font-size: 28px;
+    }
+
+    .search-container {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #0206ff;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .search-container button {
+      margin-top: 10px;
+      padding: 12px 24px;
+      background-color: #0206ff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .filiere-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .filiere-buttons button {
+      background-color: #0206ff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      margin: 10px 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #0206ff;
+      font-size: 18px;
+    }
+
+    .card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .card ul li::before {
+      content: "➕ ";
+      color: #0206ff;
+    }
+
+    .card ul li {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 40px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bibliothèque de concours</h1>
+
+  <div class="search-container">
+    <input type="text" placeholder="Recherche...">
+    <button>Trouver</button>
+  </div>
+
+  <div class="filiere-buttons">
+    <button id="concoursAfrique">Concours Africain</button>
+    <button id="concoursFrançais">Concours Français</button>
+    <button id="concoursenLigne">Concours en ligne</button>
+  </div>
+
+  <!-- Cartes des concours -->
+
+<!--groupe Concours Afrique-->
+
+<div class = "concours" id="afrique">
+  <div class="card" id="card-1">
+    <ul>
+      <li>
+        <a href ="#">Concours Prépa</a>
+        <ul>
+            <li><a href="#">MPSI</a></li>
+            <li><a href="#">PCSI</a></li>
+        </ul>
+      </li>
+      <li>IGSIT</li>
+      <li>IGIT</li>
+    </ul>
+  </div>
+
+  <div class="card" id="card-2">
+    <h3>INP-HB</h3>
+    <ul>
+      <li>GIN</li>
+      <li>GIC</li>
+      <li>STIC</li>
+    </ul>
+  </div>
+
+  <div class="card" id="card-3">
+    <h3>Central Casablanca</h3>
+    <ul>
+      <li>Central 2022</li>
+      <li>Central 2023</li>
+      <li>Central 2024</li>
+      <li>Central 2025</li>
+    </ul>
+  </div>
+
+  <div class="card" id="card-4">
+    <h3>Concours Capesa</h3>
+    <ul>
+      <li>ISE 2020</li>
+      <li>ISE 2021</li>
+      <li>ISE 2022</li>
+      <li>ISE 2023</li>
+      <li>ISE 2024</li>
+      <li>ISE 2025</li>
+    </ul>
+  </div>
+
+  <div class="card" id="card-5">
+    <h3>ESMT Dakar</h3>
+    <ul>
+      <li>ESMT 2023</li>
+      <li>ESMT 2024</li>
+      <li>ESMT 2025</li>
+    </ul>
+  </div>
+</div>
+
+<!--groupe Concours Français-->
+
+<div class = "concours" id="français">
+      
+    <div class="card" id="card-6">
+      <h3>EG@</h3>
+      <ul>
+        <li>EG@ 2022</li>
+        <li>EG@ 2023</li>
+        <li>EG@ 2024</li>
+        <li>EG@ 2025</li>
+      </ul>
+    </div>
+  
+    <div class="card" id="card-7">
+      <h3>X-Polytechnique(FUIFF Afrique)</h3>
+      <ul>
+        <li>FUIFF 2020</li>
+        <li>FUIFF 2021</li>
+        <li>FUIFF 2022</li>
+        <li>FUIFF 2023</li>
+        <li>FUIFF 2024</li>
+        <li>FUIFF 2025</li>
+      </ul>
+    </div>
+  
+    <div class="card" id="card-9">
+      <h3>Ingénuis</h3>
+      <ul>
+        <li>Ingénuis 2023</li>
+        <li>Ingénuis 2024</li>
+        <li>Ingénuis 2025</li>
+      </ul>
+    </div>
+  </div>
+
+<!--groupe Concours en ligne-->
+<div class = "concours" id="enLigne">
+    <div class="card" id="card-10">
+      <h3>UM6P</h3>
+      <p>Veuillez vous rendre sur le site officiel de <a href ="htpps://www.um6p.ma">l'UM6P.</a></p>
+    </div>
+  
+    <div class="card" id="card-11">
+      <h3>Campus Maroc</h3>
+      <p>Campus MAroc est une Structure qui vous permettra d'acceder à certaines grandes écoles Maocaines via des concours en lignes.</p>
+      <p>Une fois ces concours passeés avec succès, vous aurez une réduction des frais de scolarité en fonction de vos résultats lors des tests.</p>
+      <p>Veuillez prendre attache avec leur représentant burkinabè sur ce numéro<i class="fa fa-phone"></i> +226 56 42 42 56 | +226 62 03 05 85</p>
+    </div>
+  </div>
+
+  <script>
+    concours
+      .getElementById("concoursAfrique")
+      .addEventListener("click", function () {
+        const groups = concours.querySelectorAll(".concours");
+        groups.forEach((concours) => {
+          concours.style.display = concours.id.startsWith("afrique")
+            ? "flex"
+            : "none"; // Use "flex" to preserve alignment
+        });
+      });
+
+    concours
+      .getElementById("concoursFrançais")
+      .addEventListener("click", function () {
+        const groups = concours.querySelectorAll(".concours");
+        groups.forEach((concours) => {
+          concours.style.display = concours.id.startsWith("français")
+            ? "flex"
+            : "none"; // Use "flex" to preserve alignment
+        });
+      });
+
+    // Affiche tous les concours afrique par défaut
+    concours.getElementById("concoursAfrique").click();
+  </script>
+
+  <footer>
+    CPGE Faso. All right reserved.
+  </footer>
+
+</body>
+</html>
