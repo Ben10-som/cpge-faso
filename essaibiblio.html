@@ -224,30 +224,41 @@
   </div>
 
   <script>
-    concours
+    document
       .getElementById("concoursAfrique")
       .addEventListener("click", function () {
-        const groups = concours.querySelectorAll(".concours");
+        const groups = document.querySelectorAll(".concours");
         groups.forEach((concours) => {
-          concours.style.display = concours.id.startsWith("afrique")
-            ? "flex"
-            : "none"; // Use "flex" to preserve alignment
+          concours.style.display = concours.id === "afrique" 
+          ? "flex" 
+          : "none"; // Use "flex" to preserve alignment
         });
       });
 
-    concours
+    document
       .getElementById("concoursFrançais")
       .addEventListener("click", function () {
-        const groups = concours.querySelectorAll(".concours");
+        const groups = document.querySelectorAll(".concours");
         groups.forEach((concours) => {
-          concours.style.display = concours.id.startsWith("français")
-            ? "flex"
-            : "none"; // Use "flex" to preserve alignment
+          concours.style.display = concours.id === "français" 
+          ? "flex" 
+          : "none"; // Use "flex" to preserve alignment
+        });
+      });
+
+    document
+      .getElementById("concoursenLigne")
+      .addEventListener("click", function () {
+        const groups = document.querySelectorAll(".concours");
+        groups.forEach((concours) => {
+          concours.style.display = concours.id === "enLigne" 
+          ? "flex" 
+          : "none"; // Use "flex" to preserve alignment
         });
       });
 
     // Affiche tous les concours afrique par défaut
-    concours.getElementById("concoursAfrique").click();
+    document.getElementById("concoursAfrique").click();
   </script>
 
   <footer>
