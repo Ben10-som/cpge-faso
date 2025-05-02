@@ -57,6 +57,7 @@ img {
     place-items: center;
     margin-inline: 1.5rem;
     padding-block: 5rem;
+
 }
 .card__container{
 display: grid;
@@ -66,7 +67,7 @@ row-gap: 3.5rem;
     position: relative;
 }
 .card__img{
-    height:400px;
+    height:300px;
     width: 328px;
     margin:50px;
     border-radius: 1.5rem;
@@ -127,6 +128,115 @@ row-gap: 3.5rem;
     animation: remove-data 1s forwards;
 }
 
+.center{
+    position:fixed;
+    bottom:-20%;
+    left:90%;
+    transform:translate(-50%, -50%);
+}
+
+.center button {
+    padding:10px 20px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    border-radius:20px;
+    cursor:pointer;
+    background: transparent;
+    color:#3284ed;
+}
+
+.popup {
+    position:fixed;
+    top:100vh;
+    left:0;
+    width:100%;
+    height:100%
+}
+
+.popup .overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    transform:scale(1);
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+    transition:opacity 100ms ease-in-out 200ms;
+}
+
+.popup .popup-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(1.15);
+    width:50%;
+    background: #fff;
+    padding:15px;
+    border-radius:20px;
+    opacity:0;
+    box-shadow: 0px 2px 2px 5px rgba(0,0,0,0.05);
+    transition:all 300ms ease-in-out;
+}
+
+.popup .popup-content h2{
+    margin:10px;
+    font-size:25px;
+    color:#111;
+    text-align:center;
+}
+
+.popup .popup-content p {
+    margin:15px 0px;
+    color:#222;
+    font-size:16px;
+    text-align:center;
+
+}
+
+.popup .popup-content .controls {
+    display:flex;
+    justify-content: center;
+    margin:20px 0px 0px;
+}
+
+
+.popup .popup-content .controls button {
+    padding:10px 20px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    border-radius:20px;
+    cursor:pointer;
+    
+}
+
+
+.popup .popup-content .controls .close-btn {
+    background: transparent;
+    color:#3284ed;
+
+}
+
+
+.popup.active {
+    top:0px;
+    transition:top 0ms ease-in-out 0ms;
+}
+
+
+.popup.active .overlay {
+    opacity:1;
+    transition: all 800ms ease-in-out;
+}
+
+.popup.active .popup-content {
+    transition:translate(-50%, -50%) scale(1);
+    opacity:1;
+}
+
+
+
+
 @keyframes show-data{
     50%{
         transform: translateY(-10rem);
@@ -164,7 +274,7 @@ row-gap: 3.5rem;
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 324px) {
     .master{
         margin-inline: 1rem;
     }
@@ -174,6 +284,8 @@ row-gap: 3.5rem;
     width: 250px;
     padding: 1rem;
 }
+
+
 
 @media  screen and (min-width: 768px) {
     .card__container{
@@ -197,3 +309,43 @@ row-gap: 3.5rem;
         padding: 2.5rem;
     }
 }
+
+@media screen and (max-width: 700px) {
+
+    .master {
+        position:absolute;
+        right:20%;
+    }
+
+    .popup .overlay {
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup .popup-content {
+        width:70%;
+        padding: 20px;
+  
+    }
+
+    .popup .popup-content h2 {
+        font-size: 22px;
+    }
+
+    .popup .popup-content p {
+        font-size: 16px;
+    }
+
+    .popup .popup-content .controls button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+   }
+
+@media screen and (min-width:500px) and (max-width: 770px) {
+    .master {
+        position:absolute;
+        right:13%;
+    }
+}
+
