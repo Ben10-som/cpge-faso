@@ -2,6 +2,14 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300);
 /* Ajouter en haut du CSS */
+#content-container {
+  transition: opacity 0.3s ease;
+}
+
+.loading-content {
+  opacity: 0.5;
+}
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
