@@ -1,15 +1,15 @@
-/* Imports et variables */
+/* Imports et variables optimisés */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    --primary-color: #007BFF; /* Bleu vif */
-    --secondary-color: #0056b3; /* Bleu foncé */
-    --highlight-color: #FFFFFF; /* Blanc */
-    --neutral-color: #F5F5F5; /* Blanc cassé */
-    --white-color: #FFFFFF; /* Blanc pur */
+    --primary-color: #007BFF;
+    --secondary-color: #0056b3;
+    --highlight-color: #FFFFFF;
+    --neutral-color: #F5F5F5;
+    --white-color: #FFFFFF;
 }
 
-/* Global */
+/* Styles globaux optimisés */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -18,30 +18,18 @@ body {
     line-height: 1.8;
 }
 
-/* Animations */
+/* Animations communes */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Menu principal */
+/* Menu principal optimisé */
 .menu {
     position: fixed;
     top: 0;
@@ -62,11 +50,9 @@ body {
     height: 60px;
 }
 
-.menu ul li {
-    margin: 0 20px;
-}
+.menu li { margin: 0 20px; }
 
-.menu ul li a {
+.menu a {
     color: var(--white-color);
     text-decoration: none;
     padding: 10px 20px;
@@ -74,16 +60,15 @@ body {
     transition: all 0.3s ease;
 }
 
-.menu ul li a:hover {
+.menu a:hover {
     background-color: var(--highlight-color);
     color: var(--secondary-color);
     transform: scale(1.1);
 }
 
-/* Boutons et liens */
+/* Boutons et liens optimisés */
 a, button {
-    font-size: 1rem;
-    font-weight: bold;
+    font: bold 1rem 'Poppins', sans-serif;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -92,39 +77,30 @@ a, button {
     color: var(--white-color);
 }
 
-button:hover {
+button:hover, a:hover {
     background: var(--highlight-color);
     color: var(--secondary-color);
 }
 
-a:hover {
-    background: white;
-    color: var(--secondary-color);
+/* Sections communes optimisées */
+.accueil, .presentation, #a-propos, .partage-experience {
+    padding: 40px 20px;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
-/* Section Accueil */
 .accueil {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') center/cover no-repeat;
     color: var(--white-color);
     text-align: center;
-    padding: 100px 20px;
     margin-top: 60px;
+    padding: 100px 20px;
 }
 
-.accueil h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
+.accueil h1 { font-size: 3rem; }
 
-.accueil .cta {
-    background: var(--highlight-color);
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-transform: uppercase;
-}
-
-/* Conteneur flexible */
-.conteneur {
+/* Conteneur flexible optimisé */
+.conteneur, .presentation-contenu {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -134,45 +110,29 @@ a:hover {
     margin: 0 auto;
 }
 
-/* Section Texte */
+/* Styles texte optimisés */
 .texte {
     flex: 1;
-    text-align: left;
     max-width: 600px;
 }
 
-.texte h1 {
-    font-size: 2.8rem;
+.texte h1, #a-propos h1, .partage-experience h2 {
     color: var(--primary-color);
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-out;
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease;
 }
 
-.texte p {
+.texte h1 { font-size: 2.8rem; }
+#a-propos h1 { font-size: 2.5rem; }
+.partage-experience h2 { font-size: 2.5rem; }
+
+.texte p, #a-propos p {
     font-size: 1.2rem;
     color: var(--secondary-color);
     line-height: 1.8;
-    margin-bottom: 20px;
-    animation: fadeIn 1.2s ease-out;
 }
 
-.texte .cta {
-    background-color: var(--highlight-color);
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.texte .cta:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.1);
-}
-
-/* Section Visuel */
+/* Styles visuels optimisés */
 .visuel {
     flex: 1;
     text-align: center;
@@ -181,8 +141,6 @@ a:hover {
 .visuel img {
     max-width: 60%;
     height: auto;
-    display: block;
-    margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -193,133 +151,29 @@ a:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Section Présentation */
-.presentation {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-    margin: 20px auto;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    max-width: 900px;
-    min-height: 280px;
-}
-
-.presentation h1 {
-    flex-shrink: 0;
-    font-size: 28px;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    animation: fadeInDown 1s ease;
-}
-
-.presentation-contenu {
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.photo-profil {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin-right: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Section À propos de moi */
-#a-propos {
-    background-color: var(--white-color);
-    padding: 40px 20px;
-    margin: 20px auto;
+/* Styles de carte optimisés */
+.concours-card, .document, .temoignage {
+    background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-#a-propos h1 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    animation: fadeInDown 1s ease;
+.concours-card:hover, .document:hover, .temoignage:hover {
+    transform: scale(1.05) translateY(-5px);
 }
 
-#a-propos .presentation-contenu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-#a-propos p {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    line-height: 1.8;
-}
-
-/* Section Témoignages */
-.partage-experience {
-    text-align: center;
-    margin: 40px 0;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.partage-experience h2 {
-    font-size: 2.5rem;
-    color: #007BFF;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    border-bottom: 3px solid #0026ff;
-    display: inline-block;
-}
-
+/* Carrousel optimisé */
 .carrousel {
     position: relative;
     width: 90%;
     margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.temoignages {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+.temoignages { display: flex; }
 
-.temoignage {
-    min-width: 300px;
-    margin: 0 10px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-    flex: 1 0 80%;
-    max-width: 300px;
-}
-
-.temoignage:hover {
-    transform: scale(1);
-}
-
-.temoignage .avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-/* Navigation du carrousel */
 .arrow {
     position: absolute;
     top: 50%;
@@ -331,436 +185,43 @@ a:hover {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
     z-index: 100;
 }
 
-.arrow:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.arrow:active {
-    transform: translateY(-50%) scale(0.9);
-}
-
-.arrow::before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
-.arrow-left::before {
-    border-width: 10px 15px 10px 0;
-    border-color: transparent white transparent transparent;
-}
-
-.arrow-right::before {
-    border-width: 10px 0 10px 15px;
-    border-color: transparent transparent transparent white;
-}
-
-.arrow-left {
-    left: 10px;
-}
-
-.arrow-right {
-    right: 10px;
-}
-
-.indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.indicators div {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.indicators div.active {
-    background-color: #007BFF;
-}
-
-/* Section Concours */
-.concours-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.concours-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.concours-card:hover {
-    transform: translateY(-5px);
-}
-
-.concours-card h3 {
-    margin-top: 0;
-    color: #007BFF;
-}
-
-.concours-card p {
-    margin: 5px 0;
-    font-size: 1em;
-    color: #555;
-}
-
-/* Section Livres */
-.livre {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 40px;
-    justify-items: center;
-}
-
-.document {
-    background-color: var(--white-color);
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    padding: 20px;
-}
-
-.document img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-}
-
-.document a {
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.document:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-}
-
-.document a:hover {
-    color: var(--highlight-color);
-}
-
-/* Statistiques */
-.stat h3 {
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-
-.stat p {
-    font-size: 1rem;
-    color: var(--secondary-color);
-}
-
-/* Pied de page */
+/* Pied de page optimisé */
 footer {
     background-color: var(--secondary-color);
     color: var(--white-color);
     text-align: center;
     padding: 20px;
     margin-top: 30px;
-    font-size: 0.9rem;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .conteneur, 
-    .presentation, 
-    #a-propos .presentation-contenu,
-    .concours-list {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .temoignages {
-        flex-direction: column;
-    }
-    
-    .temoignage {
-        width: 90%;
-        margin: 10px auto;
-    }
-    
-    .photo-profil {
-        width: 150px;
-        margin-right: 0;
-        margin-bottom: 20px;
-        float: none;
-        margin: 0 auto 20px;
-        display: block;
-    }
-}
-/* ==================== */
-/* Responsive Enhancements */
-/* ==================== */
-
+/* Media queries optimisées */
 @media (max-width: 1200px) {
-    /* Adjustments for large tablets */
-    .about-content {
-        flex-direction: column;
-    }
-    
-    .about-image-col, 
-    .about-text-col {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .strategic-poles .row {
-        flex-wrap: wrap;
-    }
-    
-    .pole-card {
-        margin-bottom: 20px;
-    }
+    .conteneur, .presentation-contenu { max-width: 900px; }
 }
 
 @media (max-width: 992px) {
-    /* Tablet adjustments */
-    .header {
-        padding: 10px 0;
-    }
-    
-    .header-left, 
-    .header-right {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .logo-section {
-        display: inline-block;
-        margin-left: 10px;
-    }
-    
-    .navbar-collapse {
-        background-color: rgba(0, 91, 187, 0.9);
-        margin-top: 10px;
-    }
-    
-    .nav.navbar-nav {
-        margin: 0;
-    }
-    
-    .nav.navbar-nav li {
-        display: block;
-        text-align: center;
-    }
-    
-    .testimonial-card {
-        padding: 20px;
-    }
-    
-    .contact-horizontal .row > div {
-        margin-bottom: 20px;
-    }
+    .menu ul { height: auto; padding: 10px 0; }
+    .menu li { margin: 10px; }
 }
 
 @media (max-width: 768px) {
-    /* Mobile landscape and small tablets */
-    .section-header .title {
-        font-size: 2rem;
-    }
-    
-    .about-details h3 {
-        font-size: 1.3rem;
-    }
-    
-    .testimonial-avatar {
-        margin: 0 auto 15px;
-    }
-    
-    .testimonial-text {
+    .conteneur, .presentation-contenu, .concours-list {
+        flex-direction: column;
         text-align: center;
     }
     
-    .footer-widget {
-        margin-bottom: 30px;
-    }
-    
-    .carousel-caption h1 {
-        font-size: 2rem;
-    }
-    
-    .carousel-caption p {
-        font-size: 1rem;
-    }
+    .visuel img { max-width: 80%; }
+    .photo-profil { margin: 0 auto 20px; }
 }
 
 @media (max-width: 576px) {
-    /* Mobile portrait */
-    body {
-        font-size: 14px;
-    }
-    
-    .section-header .title {
-        font-size: 1.8rem;
-    }
-    
-    .section-header .divider {
-        margin: 10px auto;
-    }
-    
-    .btn-cta {
-        display: block;
-        margin: 0 auto 15px;
-        width: 80%;
-    }
-    
-    .contact-info p {
-        font-size: 0.9rem;
-    }
-    
-    .footer-bottom .row > div {
-        text-align: center !important;
-        margin-bottom: 10px;
-    }
-    
-    .footer-menu {
-        justify-content: center;
-    }
-    
-    /* Carousel adjustments */
-    .carousel-indicators {
-        bottom: 5px;
-    }
-    
-    .carousel-control {
-        font-size: 1.5rem;
-    }
-    
-    /* Header adjustments */
-    .logo img {
-        width: 40px;
-    }
-    
-    .brand {
-        font-size: 1.2rem;
-    }
-    
-    .navbar-toggle {
-        margin-right: 0;
-        padding: 9px 10px;
-    }
-}
-
-/* Special cases for very small screens */
-@media (max-width: 400px) {
-    .section-header .title {
-        font-size: 1.5rem;
-    }
-    
-    .btn-cta {
-        width: 100%;
-        padding: 10px;
-    }
-    
-    .social-links li {
-        margin: 0 5px;
-    }
-    
-    .footer-links li {
-        display: block;
-        margin-bottom: 5px;
-    }
-}
-
-/* ==================== */
-/* Mobile Menu Enhancements */
-/* ==================== */
-.navbar-default .navbar-toggle {
-    border-color: #fff;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
-}
-
-.navbar-default .navbar-toggle:hover, 
-.navbar-default .navbar-toggle:focus {
-    background-color: transparent;
-}
-
-/* ==================== */
-/* Form Input Sizing */
-/* ==================== */
-@media (max-width: 768px) {
-    input, textarea, select {
-        font-size: 16px !important;
-    }
-}
-
-/* ==================== */
-/* Image Responsiveness */
-/* ==================== */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.full-width-img {
-    width: 100%;
-    height: auto;
-}
-
-/* ==================== */
-/* Testimonial Carousel */
-/* ==================== */
-@media (max-width: 768px) {
-    .testimonial-carousel .item {
-        padding: 0 15px;
-    }
-    
-    .testimonial-content {
-        flex-direction: column;
-    }
-    
-    .testimonial-avatar {
-        margin-bottom: 15px;
-    }
-}
-
-/* ==================== */
-/* Footer Stacking */
-/* ==================== */
-@media (max-width: 768px) {
-    .footer-main .row > div {
-        margin-bottom: 30px;
-    }
-    
-    .newsletter-form .form-group {
-        margin-bottom: 10px;
-    }
-    
-    .newsletter-form button {
-        width: 100%;
-    }
+    .accueil h1 { font-size: 2rem; }
+    .texte h1 { font-size: 2rem; }
+    .menu a { padding: 8px 15px; }
 }
