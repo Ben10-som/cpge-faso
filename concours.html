@@ -1,440 +1,715 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive HTML5 Template">
-    <meta name="author" content="webthemez">
-    <link rel="shortcut icon" href="images/eab.jpg">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
-    <link href="css/style.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="card.css">  
-> 
-    <title>Document</title>
+    <meta name="description" content="Découvrez les concours nationaux et internationaux pour les élèves de CPGE au Burkina Faso">
+    <meta name="keywords" content="concours, CPGE, prépa, Burkina Faso, EPO, INPHB, ingénieur">
+    <meta name="author" content="CPGE Faso">
+    <title>Concours CPGE Faso - Trouvez votre école idéale</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: var(--light-bg);
+        }
+
+        /* Header Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--dark-text) !important;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><path d="M0,50 Q250,0 500,50 T1000,50 V100 H0 Z"/></svg>') repeat-x;
+            background-size: 100px 100px;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 100px; }
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 4rem 0 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Card Styles */
+        .competition-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            transform: translateY(0);
+        }
+
+        .competition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .competition-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .info-item i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+            width: 16px;
+        }
+
+        .card-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-button:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-button i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-weight: 600;
+        }
+
+        .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin: 2rem 0 1.5rem;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-
-
-    <!-- header end -->
-    <!-- presentation start -->
- <!--  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/2ie.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/epo1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/banner.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      --> 
-        <!-- header start -->
-        <header class="header fixed clearfix navbar navbar-fixed-top">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <!-- header-left start -->
-                  <div class="header-left">
-                    <!-- logo -->
-                    <div class="logo smooth-scroll">
-                      <a href="#banner"
-                        ><img id="logo" src="images/logo.png" alt="Worthy"
-                      /></a>
-                    </div>
-                    <!-- name-and-slogan -->
-                    <div class="logo-section smooth-scroll">
-                      <div class="brand"><a href="#banner">CPGE Faso</a></div>
-                    </div>
-                  </div>
-                  <!-- header-left end -->
-                </div>
-                <div class="col-md-8">
-                  <!-- header-right start -->
-                  <div class="header-right">
-                    <!-- main-navigation start -->
-                    <div class="main-navigation animated">
-                      <!-- navbar start -->
-                      <nav class="navbar navbar-default" role="navigation">
-                        <div class="container-fluid">
-                          <!-- Toggle get grouped for better mobile display -->
-                          <div class="navbar-header">
-                            <button
-                              type="button"
-                              class="navbar-toggle"
-                              data-toggle="collapse"
-                              data-target="#navbar-collapse-1"
-                            >
-                              <span class="sr-only">Toggle navigation</span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                            </button>
-                          </div>
-                          <!-- Collect the nav links, forms, and other content for toggling -->
-                          <div
-                            class="collapse navbar-collapse scrollspy smooth-scroll"
-                            id="navbar-collapse-1"
-                          >
-                            <ul class="nav navbar-nav navbar-right">
-                              <li ><a href="index.html">Accueil</a></li>
-                              <li>
-                                <a href="biblio.html">Bibliothèque et ressources</a>
-                              </li>
-                              <li><a class="active" href="concours.html">Concours</a></li>
-                              <li><a href="forum.html">Forum</a></li>
-                              <li><a href="propos.html">À propos</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </nav>
-                      <!-- navbar end -->
-                    </div>
-                    <!-- main-navigation end -->
-                  </div>
-                  <!-- header-right end -->
-                </div>
-              </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>CPGE Faso
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i>Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="biblio.html">
+                            <i class="fas fa-book me-1"></i>Bibliothèque
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="concours.html">
+                            <i class="fas fa-trophy me-1"></i>Concours
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="forum.html">
+                            <i class="fas fa-comments me-1"></i>Forum
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="propos.html">
+                            <i class="fas fa-info-circle me-1"></i>À propos
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </header> 
+        </div>
+    </nav>
 
-      <h1>Tu bosses pour réussir un concours. Mais... lequel exactement ??
-        <br>
-        Tu cherches l'école qui te correspond le mieux ?
-      </h1>
-        <h4>Cette page te facilite la tache en te proposant une liste de concours nationaux et internationaux pour les élèves de prépa</h4>
-    <!-- presentation end-->
-    <br>
-    <br>
-    <h2 >CONCOURS NATIONAUX</h2>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title fade-in">
+                Trouvez le concours qui vous correspond !
+            </h1>
+            <p class="hero-subtitle fade-in" style="animation-delay: 0.2s;">
+                Découvrez une sélection complète de concours nationaux et internationaux pour les élèves de prépa. 
+                Votre école idéale vous attend !
+            </p>
+        </div>
+    </section>
 
-    <!-- cartes -->
-    <div class="master">
-        <div class="card__container">
-            <article class="card__article">
-                <img src="images/imgccs/epo.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ECOLE POLYTECHNIQUE DE OUAGADOUGOU (EPO)</h2>
-                    <span class="card__description">* FORME DES INGENIEURS DE CONCEPTIONS DANS PLUSIEURS DOMAINES
-                        <br>
-                        *LIEU : EPO à Ouage 2000
-                        <br>
-                        *DATE DE DEPOT : 15 Mars 2025
-                        <br>
-                        *DATE DE COMPOSITION : 10 Avril 2025
-                    </span>
-                    <a href="https://epo-edu.com/" class="card__button">En savoir plus</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/banner.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Poon Hill, Nepal</span>
-                    <h2 class="card__title">Starry Night</h2>
-                    <a href="#" onclick="togglePopover(event)">Voir le concours</a>
-                       <div id="popover" style="display: none; position: absolute; background: #fff; border: 1px solid #ccc; padding: 10px;">
-                        Voici les infos du concours !
-                    </div>
-
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
+    <!-- National Competitions -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title scroll-animate">
+                <i class="fas fa-flag me-3"></i>Concours Nationaux
+            </h2>
             
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <h2>CONCOURS INTERNATIONAUX</h2>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <article class="card__article">
-                <img src="images/imgccs/inphb.png" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">INPHB </h2>
-                    <span class="card__description">Pays: Cote-d'Ivoire
-                        <br>
-                        * FORME DES INGENIEURS DE CONCEPTIONS DANS PLUSIEURS DOMAIN
-                        <br>
-                        *DATE DE DEPOT : 15 Mars 2025
-                        <br>
-                        *DATE DE COMPOSITION : 10 Avril 2025
-                        <br>
-                        *LIEU: 2ie à Kamboinsin ou à l'INPHB*LIEU: 2ie à Kamboinsin ou à l'INPHB
-                    </span>
-                    <a href="https://inphb.ci/concours/ingenieur" class="card__button">En savoir plus</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/cc.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">CENTRALE CASABLANCA</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/esmt.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ESMT</h2>
-                    <span class="card__description">Something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/ise.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ISE</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/ens.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ENS</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/um6p.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">UM6P</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/x_polytech.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">X-POLYTECHNIQUE</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">MODAL</h2>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <div class="center">
-                        <button id="open-popup2">clicker</button>
+            <div class="cards-container">
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/3498db/white?text=EPO" alt="EPO">
+                        <div class="card-badge">National</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">École Polytechnique de Ouagadougou (EPO)</h3>
+                        <p class="card-description">
+                            Formation d'ingénieurs de conception dans plusieurs domaines techniques et technologiques.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                EPO à Ouaga 2000
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                Dépôt : 15 Mars 2025
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                Composition : 10 Avril 2025
+                            </div>
+                        </div>
+                        <a href="https://epo-edu.com/" class="card-button">
+                            En savoir plus <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </article>
 
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <div class="center">
-                        <button id="open-popup">clicker</button>
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/e74c3c/white?text=2iE" alt="2iE">
+                        <div class="card-badge">National</div>
                     </div>
-
-                
+                    <div class="card-content">
+                        <h3 class="card-title">Institut International d'Ingénierie (2iE)</h3>
+                        <p class="card-description">
+                            École d'ingénieurs spécialisée dans l'eau, l'énergie et l'environnement.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                2iE Kamboinsin
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                Inscriptions ouvertes
+                            </div>
+                        </div>
+                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modal2ie">
+                            Voir détails <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
-            </article>
+
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/27ae60/white?text=ENSP" alt="ENSP">
+                        <div class="card-badge">National</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">École Nationale Supérieure Polytechnique</h3>
+                        <p class="card-description">
+                            Formation d'ingénieurs dans diverses spécialités techniques.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Ouagadougou
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-info-circle"></i>
+                                Informations à venir
+                            </div>
+                        </div>
+                        <button class="card-button" disabled>
+                            Bientôt disponible <i class="fas fa-hourglass-half"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="popup" id="popup">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <h2>Ceci est un popup</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt suscipit dolores, laborum excepturi eligendi perspiciatis illo perferendis, porro quidem non dolore harum unde nobis cupiditate repudiandae aspernatur maxime hic odio?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
+    </section>
 
-            </p>
-            <div class="controls">
-                <button class="close-btn">fermer</button>
+    <!-- International Competitions -->
+    <section class="py-5" style="background: white;">
+        <div class="container">
+            <h2 class="section-title scroll-animate">
+                <i class="fas fa-globe me-3"></i>Concours Internationaux
+            </h2>
+            
+            <div class="cards-container">
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/f39c12/white?text=INPHB" alt="INPHB">
+                        <div class="card-badge">Côte d'Ivoire</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">INPHB</h3>
+                        <p class="card-description">
+                            Institut National Polytechnique Houphouët-Boigny, formation d'ingénieurs de conception.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                Côte d'Ivoire
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                Dépôt : 15 Mars 2025
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                Composition : 10 Avril 2025
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                2iE Kamboinsin ou INPHB
+                            </div>
+                        </div>
+                        <a href="https://inphb.ci/concours/ingenieur" class="card-button">
+                            En savoir plus <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/9b59b6/white?text=Centrale" alt="Centrale Casablanca">
+                        <div class="card-badge">Maroc</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Centrale Casablanca</h3>
+                        <p class="card-description">
+                            École d'ingénieurs généralistes du réseau Centrale, formation d'excellence.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                Maroc
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-star"></i>
+                                École d'excellence
+                            </div>
+                        </div>
+                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalCentrale">
+                            Voir détails <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/e67e22/white?text=X" alt="Polytechnique">
+                        <div class="card-badge">France</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">École Polytechnique (X)</h3>
+                        <p class="card-description">
+                            La prestigieuse École Polytechnique française, formation d'ingénieurs d'élite.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                France
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-crown"></i>
+                                École prestigieuse
+                            </div>
+                        </div>
+                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalPolytechnique">
+                            Voir détails <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="competition-card scroll-animate">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x200/2ecc71/white?text=UM6P" alt="UM6P">
+                        <div class="card-badge">Maroc</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Université Mohammed VI Polytechnique</h3>
+                        <p class="card-description">
+                            Université de recherche de classe mondiale au Maroc.
+                        </p>
+                        <div class="card-info">
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                Maroc
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-microscope"></i>
+                                Université de recherche
+                            </div>
+                        </div>
+                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalUM6P">
+                            Voir détails <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal fade" id="modal2ie" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-graduation-cap me-2"></i>Institut International d'Ingénierie (2iE)
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/300x200/e74c3c/white?text=2iE" class="img-fluid rounded" alt="2iE">
+                        </div>
+                        <div class="col-md-8">
+                            <h6><i class="fas fa-info-circle me-2"></i>À propos</h6>
+                            <p>L'Institut International d'Ingénierie de l'Eau et de l'Environnement (2iE) est une école d'ingénieurs de référence en Afrique, spécialisée dans les domaines de l'eau, de l'énergie et de l'environnement.</p>
+                            
+                            <h6><i class="fas fa-calendar-alt me-2"></i>Dates importantes</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Inscriptions : Janvier - Mars 2025</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Concours : Avril 2025</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Résultats : Mai 2025</li>
+                            </ul>
+                            
+                            <h6><i class="fas fa-graduation-cap me-2"></i>Filières</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-primary">Génie Civil</span>
+                                <span class="badge bg-success">Environnement</span>
+                                <span class="badge bg-info">Énergies</span>
+                                <span class="badge bg-warning">Informatique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-primary">Site officiel</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="popup" id="popup2">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <h2>Ceci est un popup</h2>
-            <p>
-               yoyoyoy
-               yayayaya
-               k,foofo
-               <br>
-               jnfijveiv
-               <br>
-               df,v eovjo
+    <!-- Additional modals for other schools would go here -->
 
-            </p>
-            <div class="controls">
-                <button class="close-btn">fermer</button>
-            </div>
-        </div>
-    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    <!-- cartes end -->
-    <!-- JAVASCRIPT GENERAL-->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
 
-        <!-- Custom JS -->
-        <script src="js/custom.js"></script>
-        <script src="popup.js"></script>
+        // Observe all scroll-animate elements
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
 
- 
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
+        // Add loading animation to cards
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.competition-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Initialize cards with opacity 0 for animation
+        document.querySelectorAll('.competition-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+        });
+    </script>
 </body>
 </html>
