@@ -1,715 +1,652 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les concours nationaux et internationaux pour les élèves de CPGE au Burkina Faso">
-    <meta name="keywords" content="concours, CPGE, prépa, Burkina Faso, EPO, INPHB, ingénieur">
-    <meta name="author" content="CPGE Faso">
-    <title>Concours CPGE Faso - Trouvez votre école idéale</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CPGE Faso - Concours</title>
+    <meta name="description" content="Concours et examens d'entrée CPGE" />
+    <meta name="author" content="webthemez" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/animations.css" rel="stylesheet" />
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --warning-color: #f39c12;
-            --light-bg: #f8f9fa;
-            --dark-text: #2c3e50;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      /* Styles de base */
+      .no-trans {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+      }
+
+      /* Header styles */
+      .header {
+        color: #020202;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 10px 0;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 15px;
+      }
+
+      .brand a {
+        font-size: 28px;
+        font-weight: bold;
+        color: #356DE8;
+        text-decoration: none;
+      }
+
+      .main-navigation .navbar {
+        margin-bottom: 0;
+      }
+
+      .main-navigation .navbar-default {
+        background-color: transparent;
+        border: none;
+      }
+
+      .main-navigation .navbar-default .navbar-nav > li > a {
+        padding: 10px 20px;
+        color: #949494;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .main-navigation .navbar-default .navbar-nav > li.active > a {
+        background-color: transparent;
+        color: #356DE8;
+      }
+
+      .main-navigation .navbar-default .navbar-nav > li > a:hover,
+      .main-navigation .navbar-default .navbar-nav > li.active > a:hover {
+        color: #306AE8;
+      }
+
+      /* Hero section */
+      .hero-concours {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        padding: 120px 0 80px;
+        color: white;
+        text-align: center;
+        margin-top: 70px;
+      }
+
+      .hero-concours h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-concours p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* Sections principales */
+      .concours-section {
+        padding: 60px 0;
+        background: #f8f9fa;
+      }
+
+      .concours-section:nth-child(even) {
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        color: #2a5298;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: #356DE8;
+      }
+
+      /* Cards des concours */
+      .concours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .concours-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 5px solid #356DE8;
+      }
+
+      .concours-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .concours-card h3 {
+        color: #2a5298;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .concours-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .concours-card .date {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #356DE8, #2a5298);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(53, 109, 232, 0.3);
+        color: white;
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background: #356DE8;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 20px 40px;
+        position: relative;
+        background: inherit;
+        width: 50%;
+      }
+
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 4px solid #356DE8;
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(odd)::after {
+        right: -12px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-item:nth-child(even)::after {
+        left: -12px;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-content h4 {
+        color: #2a5298;
+        margin-bottom: 10px;
+      }
+
+      /* Info boxes */
+      .info-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .info-box h3 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+
+      .info-box ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .info-box li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .info-box li:last-child {
+        border-bottom: none;
+      }
+
+      /* Footer */
+      footer {
+        background: #2a5298;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      footer a {
+        color: #87ceeb;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: white;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-concours {
+          padding: 100px 0 60px;
+          margin-top: 60px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .hero-concours h1 {
+          font-size: 2.5rem;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background: var(--light-bg);
+        .concours-grid {
+          grid-template-columns: 1fr;
         }
 
-        /* Header Styles */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+        .timeline::after {
+          left: 20px;
         }
 
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color) !important;
+        .timeline-item {
+          width: 100%;
+          padding-left: 50px;
+          padding-right: 20px;
         }
 
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: var(--dark-text) !important;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-            position: relative;
+        .timeline-item::after {
+          left: 8px;
         }
 
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--secondary-color) !important;
+        .timeline-item:nth-child(even) {
+          left: 0;
         }
+      }
 
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: var(--secondary-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
+      /* Navbar toggle pour mobile */
+      .navbar-toggle {
+        border: none;
+        background: transparent;
+      }
 
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 100%;
-        }
+      .navbar-toggle .icon-bar {
+        background: #356DE8;
+        height: 3px;
+        width: 25px;
+        margin: 4px 0;
+        display: block;
+      }
 
-        /* Hero Section */
-        .hero-section {
-            background: var(--gradient);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+      @media (max-width: 767px) {
+        .navbar-collapse {
+          background: white;
+          border-top: 1px solid #eee;
+          margin-top: 10px;
+          padding: 10px 0;
         }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><path d="M0,50 Q250,0 500,50 T1000,50 V100 H0 Z"/></svg>') repeat-x;
-            background-size: 100px 100px;
-            animation: wave 10s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { background-position-x: 0; }
-            100% { background-position-x: 100px; }
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 4rem 0 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        /* Cards Container */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        /* Card Styles */
-        .competition-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            transform: translateY(0);
-        }
-
-        .competition-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .competition-card:hover .card-image img {
-            transform: scale(1.1);
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .card-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .info-item i {
-            margin-right: 8px;
-            color: var(--secondary-color);
-            width: 16px;
-        }
-
-        .card-button {
-            display: inline-flex;
-            align-items: center;
-            background: var(--gradient);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .card-button:hover {
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-button i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .card-button:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Modal Styles */
-        .modal-content {
-            border-radius: 15px;
-            border: none;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 1.5rem;
-        }
-
-        .modal-title {
-            font-weight: 600;
-        }
-
-        .btn-close {
-            filter: brightness(0) invert(1);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 100px 0 60px;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                margin: 2rem 0 1.5rem;
-            }
-        }
-
-        /* Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      }
     </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-graduation-cap me-2"></i>CPGE Faso
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            <i class="fas fa-home me-1"></i>Accueil
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="biblio.html">
-                            <i class="fas fa-book me-1"></i>Bibliothèque
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="concours.html">
-                            <i class="fas fa-trophy me-1"></i>Concours
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="forum.html">
-                            <i class="fas fa-comments me-1"></i>Forum
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="propos.html">
-                            <i class="fas fa-info-circle me-1"></i>À propos
-                        </a>
-                    </li>
-                </ul>
+  </head>
+  <body class="no-trans">
+    <!-- header start -->
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- header-left start -->
+            <div class="header-left">
+              <!-- logo -->
+              <div class="logo smooth-scroll">
+                <a href="#banner">
+                  <img id="logo" src="images/logo.png" alt="CPGE Faso" />
+                </a>
+              </div>
+              <!-- name-and-slogan -->
+              <div class="logo-section smooth-scroll">
+                <div class="brand"><a href="#banner">CPGE Faso</a></div>
+              </div>
             </div>
+            <!-- header-left end -->
+          </div>
+          <div class="col-md-8">
+            <!-- header-right start -->
+            <div class="header-right">
+              <!-- main-navigation start -->
+              <div class="main-navigation animated">
+                <!-- navbar start -->
+                <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button
+                        type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target="#navbar-collapse-1"
+                      >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div
+                      class="collapse navbar-collapse scrollspy smooth-scroll"
+                      id="navbar-collapse-1"
+                    >
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li>
+                          <a href="biblio.html">Bibliothèque et ressources</a>
+                        </li>
+                        <li class="active"><a href="concours.html">Concours</a></li>
+                        <li><a href="actualites.html">Actualités</a></li>
+                        <li><a href="propos.html">À propos</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+                <!-- navbar end -->
+              </div>
+              <!-- main-navigation end -->
+            </div>
+            <!-- header-right end -->
+          </div>
         </div>
-    </nav>
+      </div>
+    </header>
+    <!-- header end -->
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1 class="hero-title fade-in">
-                Trouvez le concours qui vous correspond !
-            </h1>
-            <p class="hero-subtitle fade-in" style="animation-delay: 0.2s;">
-                Découvrez une sélection complète de concours nationaux et internationaux pour les élèves de prépa. 
-                Votre école idéale vous attend !
+    <!-- Section Hero -->
+    <section class="hero-concours">
+      <div class="container">
+        <h1>Concours et Examens</h1>
+        <p>
+          Préparez-vous aux concours d'entrée aux grandes écoles avec nos ressources complètes et nos conseils d'experts. Découvrez les dates importantes, les modalités d'inscription et les stratégies de réussite.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Concours Principaux -->
+    <section class="concours-section">
+      <div class="container">
+        <h2 class="section-title">Concours Principaux</h2>
+        <div class="concours-grid">
+          <div class="concours-card">
+            <div class="date">Mars 2025</div>
+            <h3>Concours Polytechnique</h3>
+            <p>
+              Le concours d'entrée à l'École Polytechnique de Ouagadougou est ouvert aux étudiants de classes préparatoires scientifiques. Ce concours très sélectif permet l'accès aux formations d'ingénieur les plus prestigieuses.
             </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
+          
+          <div class="concours-card">
+            <div class="date">Avril 2025</div>
+            <h3>Concours Centrale-Supélec</h3>
+            <p>
+              Concours commun ouvrant les portes des écoles Centrale et Supélec. Une opportunité unique pour intégrer des écoles d'ingénieurs de renommée internationale avec des spécialisations variées.
+            </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
+          
+          <div class="concours-card">
+            <div class="date">Mai 2025</div>
+            <h3>Concours Mines-Ponts</h3>
+            <p>
+              Le concours commun Mines-Ponts donne accès à un ensemble d'écoles prestigieuses formant les futurs ingénieurs dans les domaines des mines, des ponts et chaussées, et des télécommunications.
+            </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
+          
+          <div class="concours-card">
+            <div class="date">Juin 2025</div>
+            <h3>Concours ENS</h3>
+            <p>
+              Les concours d'entrée aux Écoles Normales Supérieures (Ulm, Lyon, Cachan) constituent la voie royale vers l'enseignement supérieur et la recherche de haut niveau.
+            </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
+          
+          <div class="concours-card">
+            <div class="date">Juillet 2025</div>
+            <h3>Concours E3A</h3>
+            <p>
+              Le concours E3A (anciennement ENSAM) ouvre l'accès à plus de 60 écoles d'ingénieurs. Un concours avec un large éventail d'opportunités pour tous les profils scientifiques.
+            </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
+          
+          <div class="concours-card">
+            <div class="date">Août 2025</div>
+            <h3>Concours INSA</h3>
+            <p>
+              Les concours des Instituts Nationaux des Sciences Appliquées offrent une formation d'ingénieur sur 5 ans avec une approche très pratique et une forte dimension internationale.
+            </p>
+            <a href="#" class="btn-primary">En savoir plus</a>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- National Competitions -->
-    <section class="py-5">
+    <!-- Section Calendrier -->
+    <section class="concours-section">
+      <div class="container">
+        <h2 class="section-title">Calendrier des Concours 2025</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>Janvier - Février</h4>
+              <p>Période d'inscription aux concours. Finalisation des dossiers et confirmation des choix d'écoles.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>Mars - Avril</h4>
+              <p>Épreuves écrites des concours Polytechnique et Centrale-Supélec. Révisions intensives recommandées.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>Mai - Juin</h4>
+              <p>Épreuves écrites Mines-Ponts et ENS. Période cruciale pour la préparation aux oraux.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>Juillet - Août</h4>
+              <p>Épreuves orales et résultats. Procédures d'admission et choix définitifs des écoles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Conseils -->
+    <section class="concours-section">
+      <div class="container">
+        <h2 class="section-title">Conseils de Préparation</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="info-box">
+              <h3>Stratégies de Révision</h3>
+              <ul>
+                <li>Planifier un programme de révision équilibré</li>
+                <li>Pratiquer régulièrement les annales</li>
+                <li>Maîtriser la gestion du temps</li>
+                <li>Identifier et combler les lacunes</li>
+                <li>Maintenir un rythme de travail régulier</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-box">
+              <h3>Préparation aux Oraux</h3>
+              <ul>
+                <li>S'entraîner à la résolution de problèmes au tableau</li>
+                <li>Développer ses capacités de communication</li>
+                <li>Préparer les questions de culture générale</li>
+                <li>Maîtriser les fondamentaux de chaque matière</li>
+                <li>Gérer le stress et la pression</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Ressources -->
+    <section class="concours-section">
+      <div class="container">
+        <h2 class="section-title">Ressources Utiles</h2>
+        <div class="concours-grid">
+          <div class="concours-card">
+            <h3>Annales des Concours</h3>
+            <p>Accédez aux sujets des années précédentes avec corrections détaillées pour tous les concours majeurs.</p>
+            <a href="#" class="btn-primary">Télécharger</a>
+          </div>
+          
+          <div class="concours-card">
+            <h3>Guides de Préparation</h3>
+            <p>Méthodologies, conseils pratiques et stratégies éprouvées pour optimiser votre préparation.</p>
+            <a href="#" class="btn-primary">Consulter</a>
+          </div>
+          
+          <div class="concours-card">
+            <h3>Simulateurs de Concours</h3>
+            <p>Entraînez-vous dans les conditions réelles avec nos simulateurs chronométrés.</p>
+            <a href="#" class="btn-primary">S'entraîner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer start -->
+    <footer>
+      <div class="subfooter">
         <div class="container">
-            <h2 class="section-title scroll-animate">
-                <i class="fas fa-flag me-3"></i>Concours Nationaux
-            </h2>
-            
-            <div class="cards-container">
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/3498db/white?text=EPO" alt="EPO">
-                        <div class="card-badge">National</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">École Polytechnique de Ouagadougou (EPO)</h3>
-                        <p class="card-description">
-                            Formation d'ingénieurs de conception dans plusieurs domaines techniques et technologiques.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                EPO à Ouaga 2000
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                Dépôt : 15 Mars 2025
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-clock"></i>
-                                Composition : 10 Avril 2025
-                            </div>
-                        </div>
-                        <a href="https://epo-edu.com/" class="card-button">
-                            En savoir plus <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/e74c3c/white?text=2iE" alt="2iE">
-                        <div class="card-badge">National</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Institut International d'Ingénierie (2iE)</h3>
-                        <p class="card-description">
-                            École d'ingénieurs spécialisée dans l'eau, l'énergie et l'environnement.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                2iE Kamboinsin
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                Inscriptions ouvertes
-                            </div>
-                        </div>
-                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modal2ie">
-                            Voir détails <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/27ae60/white?text=ENSP" alt="ENSP">
-                        <div class="card-badge">National</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">École Nationale Supérieure Polytechnique</h3>
-                        <p class="card-description">
-                            Formation d'ingénieurs dans diverses spécialités techniques.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Ouagadougou
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-info-circle"></i>
-                                Informations à venir
-                            </div>
-                        </div>
-                        <button class="card-button" disabled>
-                            Bientôt disponible <i class="fas fa-hourglass-half"></i>
-                        </button>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-center">
+                Copyright © 2015 Template by
+                <a target="_blank" href="http://webthemez.com">webthemez.com</a>.
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </footer>
+    <!-- footer end -->
 
-    <!-- International Competitions -->
-    <section class="py-5" style="background: white;">
-        <div class="container">
-            <h2 class="section-title scroll-animate">
-                <i class="fas fa-globe me-3"></i>Concours Internationaux
-            </h2>
-            
-            <div class="cards-container">
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/f39c12/white?text=INPHB" alt="INPHB">
-                        <div class="card-badge">Côte d'Ivoire</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">INPHB</h3>
-                        <p class="card-description">
-                            Institut National Polytechnique Houphouët-Boigny, formation d'ingénieurs de conception.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-globe"></i>
-                                Côte d'Ivoire
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                Dépôt : 15 Mars 2025
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-clock"></i>
-                                Composition : 10 Avril 2025
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                2iE Kamboinsin ou INPHB
-                            </div>
-                        </div>
-                        <a href="https://inphb.ci/concours/ingenieur" class="card-button">
-                            En savoir plus <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/9b59b6/white?text=Centrale" alt="Centrale Casablanca">
-                        <div class="card-badge">Maroc</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Centrale Casablanca</h3>
-                        <p class="card-description">
-                            École d'ingénieurs généralistes du réseau Centrale, formation d'excellence.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-globe"></i>
-                                Maroc
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-star"></i>
-                                École d'excellence
-                            </div>
-                        </div>
-                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalCentrale">
-                            Voir détails <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/e67e22/white?text=X" alt="Polytechnique">
-                        <div class="card-badge">France</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">École Polytechnique (X)</h3>
-                        <p class="card-description">
-                            La prestigieuse École Polytechnique française, formation d'ingénieurs d'élite.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-globe"></i>
-                                France
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-crown"></i>
-                                École prestigieuse
-                            </div>
-                        </div>
-                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalPolytechnique">
-                            Voir détails <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="competition-card scroll-animate">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/400x200/2ecc71/white?text=UM6P" alt="UM6P">
-                        <div class="card-badge">Maroc</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Université Mohammed VI Polytechnique</h3>
-                        <p class="card-description">
-                            Université de recherche de classe mondiale au Maroc.
-                        </p>
-                        <div class="card-info">
-                            <div class="info-item">
-                                <i class="fas fa-globe"></i>
-                                Maroc
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-microscope"></i>
-                                Université de recherche
-                            </div>
-                        </div>
-                        <button class="card-button" data-bs-toggle="modal" data-bs-target="#modalUM6P">
-                            Voir détails <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modals -->
-    <div class="modal fade" id="modal2ie" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <i class="fas fa-graduation-cap me-2"></i>Institut International d'Ingénierie (2iE)
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300x200/e74c3c/white?text=2iE" class="img-fluid rounded" alt="2iE">
-                        </div>
-                        <div class="col-md-8">
-                            <h6><i class="fas fa-info-circle me-2"></i>À propos</h6>
-                            <p>L'Institut International d'Ingénierie de l'Eau et de l'Environnement (2iE) est une école d'ingénieurs de référence en Afrique, spécialisée dans les domaines de l'eau, de l'énergie et de l'environnement.</p>
-                            
-                            <h6><i class="fas fa-calendar-alt me-2"></i>Dates importantes</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>Inscriptions : Janvier - Mars 2025</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Concours : Avril 2025</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Résultats : Mai 2025</li>
-                            </ul>
-                            
-                            <h6><i class="fas fa-graduation-cap me-2"></i>Filières</h6>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge bg-primary">Génie Civil</span>
-                                <span class="badge bg-success">Environnement</span>
-                                <span class="badge bg-info">Énergies</span>
-                                <span class="badge bg-warning">Informatique</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-primary">Site officiel</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Additional modals for other schools would go here -->
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
     <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all scroll-animate elements
-        document.querySelectorAll('.scroll-animate').forEach(el => {
-            observer.observe(el);
+      // Animation au scroll
+      $(window).scroll(function() {
+        $('.timeline-item').each(function() {
+          var elementTop = $(this).offset().top;
+          var elementBottom = elementTop + $(this).outerHeight();
+          var viewportTop = $(window).scrollTop();
+          var viewportBottom = viewportTop + $(window).height();
+          
+          if (elementBottom > viewportTop && elementTop < viewportBottom) {
+            $(this).addClass('animated fadeInUp');
+          }
         });
+      });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      // Effet hover sur les cartes
+      $('.concours-card').hover(
+        function() {
+          $(this).find('.btn-primary').css('transform', 'scale(1.05)');
+        },
+        function() {
+          $(this).find('.btn-primary').css('transform', 'scale(1)');
+        }
+      );
 
-        // Add loading animation to cards
-        window.addEventListener('load', () => {
-            const cards = document.querySelectorAll('.competition-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        });
-
-        // Initialize cards with opacity 0 for animation
-        document.querySelectorAll('.competition-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-        });
+      // Smooth scroll pour les liens internes
+      $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 70
+          }, 1000);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
