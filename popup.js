@@ -1,4 +1,4 @@
-function createPopup(_popup) {
+/*function createPopup(_popup) {
     // Create a popup
     let popupNode = document.querySelector("#popup");
     let overlay = popupNode.querySelector(".overlay");
@@ -53,4 +53,47 @@ function createPopup(_popup2) {
 
 let popup2 = createPopup("#popup2");
 console.log(popup2);
-document.querySelector("#open-popup2").addEventListener("click", popup);
+document.querySelector("#open-popup2").addEventListener("click", popup);*/
+
+// Sélectionner toutes les cartes et tous les popups
+const cards = document.querySelectorAll('.card__article');
+const popups = document.querySelectorAll('.popup');
+
+// Associer chaque carte à son popup via index
+cards.forEach((card, index) => {
+  const button = card.querySelector('#open-popup');
+  const popup = document.getElementById(`popup${index + 1}`);
+
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Fermer les autres popups
+    popups.forEach(p => p.hidden = true);
+
+    // Afficher le popup correspondant
+    popup.hidden = false;
+  });
+});
+
+// Fermer les popups au clic sur bouton ou overlay
+popups.forEach(popup => {
+  const closeBtn = popup.querySelector('.close-btn');
+  const overlay = popup.querySelector('.overlay');
+
+  closeBtn.addEventListener('click', () => {
+    popup.hidden = true;
+  });
+
+  overlay.addEventListener('click', () => {
+    popup.hidden = true;
+  });
+});
+
+// Fermer tout popup si clic en dehors
+document.addEventListener('click', (e) => {
+  const isInPopup = [...popups].some(p => p.contains(e.target));
+  const isInCard = [...cards].some(card => card.contains(e.target));
+  if (!isInPopup && !isInCard) {
+    popups.forEach(p => p.hidden = true);
+  }
+});
