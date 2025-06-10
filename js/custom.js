@@ -151,3 +151,39 @@
         }, 50);
     }
 })(jQuery);
+// Mobile menu enhancement
+$(document).ready(function() {
+    // Close mobile menu when clicking on a link
+    $('.navbar-nav li a').click(function() {
+        if ($(window).width() < 992) {
+            $('.navbar-collapse').collapse('hide');
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    $('a[href*="#"]').on('click', function(e) {
+        e.preventDefault();
+        
+        $('html, body').animate(
+            {
+                scrollTop: $($(this).attr('href')).offset().top - 70,
+            },
+            500,
+            'linear'
+        );
+    });
+    
+    // Adjust carousel height on mobile
+    function adjustCarouselHeight() {
+        if ($(window).width() < 768) {
+            var windowHeight = $(window).height();
+            $('#bannerCarousel').css('height', windowHeight * 0.6 + 'px');
+        } else {
+            $('#bannerCarousel').css('height', 'auto');
+        }
+    }
+    
+    // Run on load and resize
+    adjustCarouselHeight();
+    $(window).resize(adjustCarouselHeight);
+});
