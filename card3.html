@@ -2,64 +2,56 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Popup Cards V4</title>
-  <link href="pop.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concours Grandes Écoles</title>
+  <link rel="stylesheet" href="card3.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-3xl font-bold text-center mb-8">Fiches Concours – Grandes Écoles</h1>
 
-  <article class="card__article">
-    <img src="images/epo1.jpg" alt="image" class="card__img">
-    <div class="card__data">
-      <span class="card__description">Bojein, Serbia</span>
-      <h2 class="card__title">Path of Peace</h2>
-      <div class="center">
-        <button class="open-popup">clicker</button>
-
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Carte CentraleSupélec -->
+    <div class="card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/e/ea/Logo_CentraleSupélec.svg" alt="CentraleSupélec" class="school-img w-full h-48 object-contain p-4 bg-white">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">CentraleSupélec</h2>
+        <button class="voir-plus bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+        <div class="card-details hidden mt-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-xl">
+          <p>CentraleSupélec est une école d'ingénieurs réputée en France. Elle recrute via le concours Centrale (filières MP, PC, PSI). Les épreuves ont généralement lieu en avril.</p>
+          <a href="https://www.centralesupelec.fr" target="_blank" class="text-blue-600 underline mt-2 inline-block">Page officielle</a>
+        </div>
       </div>
     </div>
-  </article>
 
-  <article class="card__article">
-    <img src="images/epo2.jpg" alt="image" class="card__img">
-    <div class="card__data">
-      <span class="card__description">Kyoto, Japan</span>
-      <h2 class="card__title">Zen Moments</h2>
-      <div class="center">
-        <button class="open-popup">clicker</button>
-
+    <!-- Carte Mines Paris -->
+    <div class="card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Logo_Mines_ParisTech.svg" alt="Mines Paris" class="school-img w-full h-48 object-contain p-4 bg-white">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">Mines Paris</h2>
+        <button class="voir-plus bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+        <div class="card-details hidden mt-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-xl">
+          <p>Mines Paris est une grande école reconnue dans l’énergie et l’industrie. Le concours Mines-Ponts (MP, PC, PSI) a lieu chaque année au printemps.</p>
+          <a href="https://www.minesparis.psl.eu" target="_blank" class="text-blue-600 underline mt-2 inline-block">Page officielle</a>
+        </div>
       </div>
     </div>
-  </article>
-
-  <!-- POPUPS -->
-  <div class="popup" id="popup1" hidden>
-    <div class="overlay"></div>
-    <div class="popup-content">
-      <h2>Path of Peace</h2>
-      <p>
-        Détails approfondis sur "Path of Peace"<br>
-        Emplacement, histoire, ambiance, etc.
-      </p>
-      <div class="controls">
-        <button class="close-btn">fermer</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="popup" id="popup2" hidden>
-    <div class="overlay"></div>
-    <div class="popup-content">
-      <h2>Zen Moments</h2>
-      <p>
-        Plongée dans la culture zen du Japon<br>
-        Nature, silence, paix intérieure.
-      </p>
-      <div class="controls">
-        <button class="close-btn">fermer</button>
+    
+    <!-- Carte Arts et Métiers -->
+    <div class="card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/6/6c/Logo_Arts_et_M%C3%A9tiers_2022.svg" alt="Arts et Métiers" class="school-img w-full h-48 object-contain p-4 bg-white">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2">Arts et Métiers</h2>
+        <button class="voir-plus bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+        <div class="card-details hidden mt-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-xl">
+          <p>Les Arts et Métiers forment des ingénieurs généralistes. L'école recrute via son propre concours pour MP, PC, PSI et PTSI. Fort ancrage industriel.</p>
+          <a href="https://artsetmetiers.fr" target="_blank" class="text-blue-600 underline mt-2 inline-block">Page officielle</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="scri.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="card3.js"></script>
 </body>
 </html>
