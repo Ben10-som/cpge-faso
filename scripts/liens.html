@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liens Utiles</title>
+  <link rel="stylesheet" href="cpgeFaso.css">
+  <style>
+    /* Styles généraux */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+   
+   
+   
+    .presentation {
+      text-align: center;
+      padding: 30px 15px;
+      background-color: #b8c4d1;
+      color: #fff;
+    }
+
+    .presentation h1 {
+      margin-bottom: 10px;
+    }
+
+    .presentation p {
+      font-size: 1.1em;
+    }
+
+    /* Section liens utiles */
+    .liens-utiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 30px auto;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-icon {
+      font-size: 50px;
+      text-align: center;
+      padding: 20px;
+      color: #007BFF;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .card-content p {
+      margin: 0 0 15px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .card-content a {
+      display: inline-block;
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .card-content a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <ul class="liste_entete">
+      <li><a href="cpgeFaso.html">Accueil</a></li>
+      <li><a href="bibliotheque.html">Bibliothèque</a></li>
+      <li><a href="liens.html" class="active">Liens utiles</a></li>
+      <li><a href="concours.html">Concours</a></li>
+    </ul>
+  </div>
+
+  <div class="presentation">
+    <h1>Liens Utiles</h1>
+    <p>Explorez les meilleures ressources en ligne pour réussir vos études en classes préparatoires !</p>
+  </div>
+
+  <div class="liens-utiles">
+    <!-- Carte 1 -->
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-content">
+        <h3>CPGE Student</h3>
+        <p>Un blog dédié aux étudiants des classes préparatoires.</p>
+        <a href="https://cpgestudent.wordpress.com/" target="_blank">Visiter</a>
+      </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <div class="card-content">
+        <h3>PT Physique</h3>
+        <p>Ressources spécialisées pour la physique en filière PT.</p>
+        <a href="http://pt.physique.free.fr/index.php" target="_blank">Visiter</a>
+      </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="card">
+      <div class="card-icon">📘</div>
+      <div class="card-content">
+        <h3>AlloSchool</h3>
+        <p>Concours et solutions pour la filière MP en mathématiques.</p>
+        <a href="https://www.alloschool.com/course/concours-mathematiques-mp" target="_blank">Visiter</a>
+      </div>
+    </div>
+
+    <!-- Carte 4 -->
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <div class="card-content">
+        <h3>CPGE Paradise</h3>
+        <p>Exercices et corrigés pour la physique MP.</p>
+        <a href="https://www.cpge-paradise.com/MP4Phys.php" target="_blank">Visiter</a>
+      </div>
+    </div>
+
+    <!-- Carte 5 -->
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-content">
+        <h3>E-Learning CPGE</h3>
+        <p>Une bibliothèque d’ouvrages pour les CPGE.</p>
+        <a href="https://www.elearning-cpge.com/biblio-ouvrages/" target="_blank">Visiter</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

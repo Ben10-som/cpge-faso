@@ -10,8 +10,6 @@
 		<meta name="author" content="webthemez">
 
 		<!-- Mobile Meta -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,76 +28,63 @@
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
 		<!-- header start --> 
+		<header class="header fixed clearfix navbar navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<!-- header-left start --> 
+						<div class="header-left">
+							<!-- logo -->
+							<div class="logo smooth-scroll">
+								<a href="#banner"><img id="logo" src="images/eab.ico" alt="Worthy" style="width: 50px; height: auto;"></a>
+							</div>
+							<!-- name-and-slogan -->
+							<div class="logo-section smooth-scroll">
+								<div class="brand"><a href="#banner">EAB CPGE </a></div>								
+							</div>
+						</div>
+						<!-- header-left end -->
+					</div>
+					<div class="col-md-8">
+						<!-- header-right start --> 
+						<div class="header-right">
+							<!-- main-navigation start --> 
+							<div class="main-navigation animated">
+								<!-- navbar start --> 
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+										<!-- Toggle get grouped for better mobile display -->
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
 
-    <!-- header start -->
-    <header class="header fixed clearfix navbar navbar-fixed-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <!-- header-left start -->
-              <div class="header-left">
-                <!-- logo -->
-                <div class="logo smooth-scroll">
-                  <a href="#banner"
-                    ><img id="logo" src="images/logo.png" alt="Worthy"
-                  /></a>
-                </div>
-                <!-- name-and-slogan -->
-                <div class="logo-section smooth-scroll">
-                  <div class="brand"><a href="#banner">CPGE Faso</a></div>
-                </div>
-              </div>
-              <!-- header-left end -->
-            </div>
-            <div class="col-md-8">
-              <!-- header-right start -->
-              <div class="header-right">
-                <!-- main-navigation start -->
-                <div class="main-navigation animated">
-                  <!-- navbar start -->
-                  <nav class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-                      <!-- Toggle get grouped for better mobile display -->
-                      <div class="navbar-header">
-                        <button
-                          type="button"
-                          class="navbar-toggle"
-                          data-toggle="collapse"
-                          data-target="#navbar-collapse-1"
-                        >
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                        </button>
-                      </div>
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                      <div
-                        class="collapse navbar-collapse scrollspy smooth-scroll"
-                        id="navbar-collapse-1"
-                      >
-                        <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="index.html">Accueil</a></li>
-                          <li>
-                            <a class="active" href="biblio.html">Bibliothèque et ressources</a>
-                          </li>
-                          <li><a href="concours.html">Concours</a></li>
-                          <li><a href="actualites.html">Actualités</a></li>
-                          <li><a href="propos.html">À propos</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </nav>
-                  <!-- navbar end -->
-                </div>
-                <!-- main-navigation end -->
-              </div>
-              <!-- header-right end -->
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- header end --><!-- header end -->
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<li class="active"><a href="index.html">Accueil</a></li>
+												<li><a href="biblio.html">Bibliothèque et réssources</a></li>
+												<li><a href="concours.html">Concours</a></li>
+												<li><a href="forum.html">Forum</a></li>
+												<li><a href="propos.html">A propos</a></li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+								<!-- navbar end -->
+							</div>
+							<!-- main-navigation end -->
+						</div>
+						<!-- header-right end -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header end -->
 
 
 		<!-- banner start --> 
@@ -206,7 +191,9 @@
         </div>
         
         <div class="cta-section text-center">
-          
+            <a href="https://forms.gle/scCdZAuwLtNnzBxx6" class="btn btn-cta" target="_blank">
+                <i class="fa fa-user-plus"></i> Devenir membre
+            </a>
             <div class="contact-info">
                 <p><i class="fa fa-phone"></i> +226 70 82 56 05 | +226 60 39 22 18</p>
                 <p><i class="fa fa-envelope"></i> contact@eab-cpge.bf</p>
@@ -241,11 +228,11 @@
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-avatar">
-                                <img src="../cpge-faso/images/adrien.jpg" alt="Témoin 1" class="img-circle">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Témoin 1" class="img-circle">
                             </div>
                             <div class="testimonial-text">
                                 <blockquote>
-                                    <p>"Mon passage dans les classes préparatoires de l'EPO représentent pour moi une étape très importante de mon cursus car j'ai pu évoluer dans un environnement stimulant de culture de l'excellence, ce qui m'a ouvert les portes à un parcours international en école d'ingénieurs."</p>
+                                    <p>"Les classes préparatoires m'ont appris la rigueur et la persévérance. Les premières semaines étaient intenses, mais j'ai acquis une méthode de travail efficace qui me sert encore aujourd'hui."</p>
                                     <footer>
                                         <strong>Jean Kaboré</strong>
                                         <span>Ancien CPGE, Ingénieur chez Orange</span>
@@ -261,13 +248,13 @@
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-avatar">
-                                <img src="../cpge-faso/images/anicha.jpg" alt="Témoin 2" class="img-circle">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Témoin 2" class="img-circle">
                             </div>
                             <div class="testimonial-text">
                                 <blockquote>
-                                    <p>"Actuellement en 1ère année de génie énergétique en France, les classes préparatoires ont été l'élément capital dans l'aboutissement du parcours de cette jeune fille pleine de rêves et vouée à l'excellence scolaire. J'y ai appris à cultiver la curiosité, la recherche sans relâche et la force mentale nécessaires pour terminer ce chemin vers l'insertion professionnelle."</p>
+                                    <p>"Je me souviens des nuits blanches passées sur des exercices de maths, mais aussi de la solidarité entre camarades. Les classes prépa ne sont pas juste une épreuve académique, c'est aussi une belle aventure humaine."</p>
                                     <footer>
-                                        <strong>Anicha Drabo</strong>
+                                        <strong>Amina Traoré</strong>
                                         <span>Étudiante à l'ENSEIRB-MATMECA</span>
                                     </footer>
                                 </blockquote>
@@ -281,7 +268,7 @@
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-avatar">
-                                <img src="../cpge-faso/images/moi.jpg" alt="Témoin 3" class="img-circle">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Témoin 3" class="img-circle">
                             </div>
                             <div class="testimonial-text">
                                 <blockquote>
@@ -399,7 +386,7 @@
                             <li><a href="index.html">Accueil</a></li>
                             <li><a href="biblio.html">Bibliothèque</a></li>
                             <li><a href="concours.html">Concours</a></li>
-                            <li><a href="actualites.html">Actualités</a></li>
+                            <li><a href="forum.html">Forum</a></li>
                             <li><a href="propos.html">À propos</a></li>
                         </ul>
                     </div>
@@ -471,10 +458,9 @@
 			$(document).ready(function() {
 			  // Initialisation du carrousel
 			  $('#bannerCarousel').carousel({
-				interval: 100 // Défilement toutes les 1 seconde
+				interval: 5000 // Défilement toutes les 5 secondes
 			  });
 			});
 		</script>
-        
 	</body>
 </html>
