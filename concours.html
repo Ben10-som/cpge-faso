@@ -1,440 +1,761 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive HTML5 Template">
-    <meta name="author" content="webthemez">
-    <link rel="shortcut icon" href="images/eab.jpg">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">  
-    <link href="css/style.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="card.css">  
-> 
-    <title>Document</title>
-</head>
-<body>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Concours - CPGE Faso</title>
+    <meta name="description" content="Concours pour les élèves de CPGE" />
+    <meta name="author" content="webthemez" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/animations.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <style>
+      /* ================ Global Styles ================ */
+      :root {
+        --primary-color: #1e3c72;
+        --secondary-color: #2a5298;
+        --accent-color: #0A94DB;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --text-color: #495057;
+        --white: #ffffff;
+      }
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+      }
+      
+      a {
+        transition: all 0.3s ease;
+      }
+      
+      /* ================ Header ================ */
+      .header {
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--white);
+      }
+      
+      .navbar-default .navbar-nav > li > a {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      
+      .navbar-default .navbar-nav > li.active > a {
+        color: var(--accent-color);
+      }
+      
+      /* ================ Hero Section ================ */
+      .concours-hero {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        padding: 120px 0 100px;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .concours-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('images/dots-pattern.png') repeat;
+        opacity: 0.05;
+      }
+      
+      .concours-hero .container {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .concours-hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 0.8s ease;
+      }
+      
+      .concours-hero h4 {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        font-weight: 300;
+        opacity: 0.9;
+        animation: fadeIn 1s ease 0.3s forwards;
+      }
+      
+      /* ================ Section Titles ================ */
+      .section-title {
+        text-align: center;
+        margin: 80px 0 50px;
+        position: relative;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        display: inline-block;
+        padding-bottom: 15px;
+        position: relative;
+      }
+      
+      .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--accent-color);
+      }
+      
+      /* ================ Cards Container ================ */
+      .concours-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+      
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+      
+      /* ================ Card Styles ================ */
+      .concours-card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        transform: translateY(0);
+      }
+      
+      .concours-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .concours-card:hover .card-image {
+        transform: scale(1.05);
+      }
+      
+      .card-content {
+        padding: 25px;
+        position: relative;
+      }
+      
+      .card-school {
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        background: var(--accent-color);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .card-title {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        margin: 15px 0 10px;
+        font-weight: 700;
+      }
+      
+      .card-description {
+        color: var(--text-color);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
+      
+      .card-details {
+        margin-bottom: 20px;
+      }
+      
+      .detail-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+      
+      .detail-icon {
+        color: var(--accent-color);
+        margin-right: 10px;
+        font-size: 0.9rem;
+        margin-top: 3px;
+      }
+      
+      .detail-text {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        flex: 1;
+      }
+      
+      .card-button {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary-color);
+      }
+      
+      .card-button:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+      }
+      
+      /* ================ National/International Badges ================ */
+      .badge-national {
+        background-color: #28a745;
+      }
+      
+      .badge-international {
+        background-color: #17a2b8;
+      }
+      
+      /* ================ Animations ================ */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animated-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* ================ Responsive Styles ================ */
+      @media (max-width: 992px) {
+        .concours-hero h1 {
+          font-size: 2.4rem;
+        }
+        
+        .concours-hero h4 {
+          font-size: 1.1rem;
+        }
+        
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .concours-hero {
+          padding: 100px 0 80px;
+        }
+        
+        .concours-hero h1 {
+          font-size: 2rem;
+        }
+        
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .section-title h2 {
+          font-size: 1.6rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .concours-hero {
+          padding: 80px 0 60px;
+        }
+        
+        .concours-hero h1 {
+          font-size: 1.8rem;
+        }
+        
+        .concours-hero h4 {
+          font-size: 1rem;
+        }
+      }
+      
+      /* ================ Footer ================ */
+      footer {
+        background-color: var(--dark-color);
+        color: var(--white);
+        padding: 30px 0;
+      }
+      
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .footer-links a {
+        color: var(--white);
+        opacity: 0.7;
+      }
+      
+      .footer-links a:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+      
+      .copyright {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body class="no-trans">
+    <!-- scrollToTop -->
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
-
-    <!-- header end -->
-    <!-- presentation start -->
- <!--  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/2ie.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/epo1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/banner.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      --> 
-        <!-- header start -->
-        <header class="header fixed clearfix navbar navbar-fixed-top">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <!-- header-left start -->
-                  <div class="header-left">
-                    <!-- logo -->
-                    <div class="logo smooth-scroll">
-                      <a href="#banner"
-                        ><img id="logo" src="images/logo.png" alt="Worthy"
-                      /></a>
-                    </div>
-                    <!-- name-and-slogan -->
-                    <div class="logo-section smooth-scroll">
-                      <div class="brand"><a href="#banner">CPGE Faso</a></div>
-                    </div>
-                  </div>
-                  <!-- header-left end -->
-                </div>
-                <div class="col-md-8">
-                  <!-- header-right start -->
-                  <div class="header-right">
-                    <!-- main-navigation start -->
-                    <div class="main-navigation animated">
-                      <!-- navbar start -->
-                      <nav class="navbar navbar-default" role="navigation">
-                        <div class="container-fluid">
-                          <!-- Toggle get grouped for better mobile display -->
-                          <div class="navbar-header">
-                            <button
-                              type="button"
-                              class="navbar-toggle"
-                              data-toggle="collapse"
-                              data-target="#navbar-collapse-1"
-                            >
-                              <span class="sr-only">Toggle navigation</span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                            </button>
-                          </div>
-                          <!-- Collect the nav links, forms, and other content for toggling -->
-                          <div
-                            class="collapse navbar-collapse scrollspy smooth-scroll"
-                            id="navbar-collapse-1"
-                          >
-                            <ul class="nav navbar-nav navbar-right">
-                              <li class="active"><a href="index.html">Accueil</a></li>
-                              <li>
-                                <a href="biblio.html">Bibliothèque et ressources</a>
-                              </li>
-                              <li><a href="concours.html">Concours</a></li>
-                              <li><a href="forum.html">Forum</a></li>
-                              <li><a href="propos.html">À propos</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </nav>
-                      <!-- navbar end -->
-                    </div>
-                    <!-- main-navigation end -->
-                  </div>
-                  <!-- header-right end -->
-                </div>
+    <!-- header start -->
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- header-left start -->
+            <div class="header-left">
+              <!-- logo -->
+              <div class="logo smooth-scroll">
+                <a href="#banner"
+                  ><img id="logo" src="images/logo.png" alt="CPGE Faso"
+                /></a>
+              </div>
+              <!-- name-and-slogan -->
+              <div class="logo-section smooth-scroll">
+                <div class="brand"><a href="#banner">CPGE Faso</a></div>
               </div>
             </div>
-          </header> 
-
-      <h1>Tu bosses pour réussir un concours. Mais... lequel exactement ??
-        <br>
-        Tu cherches l'école qui te correspond le mieux ?
-      </h1>
-        <h4>Cette page te facilite la tache en te proposant une liste de concours nationaux et internationaux pour les élèves de prépa</h4>
-    <!-- presentation end-->
-    <br>
-    <br>
-    <h2 >CONCOURS NATIONAUX</h2>
-
-    <!-- cartes -->
-    <div class="master">
-        <div class="card__container">
-            <article class="card__article">
-                <img src="images/imgccs/epo.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ECOLE POLYTECHNIQUE DE OUAGADOUGOU (EPO)</h2>
-                    <span class="card__description">* FORME DES INGENIEURS DE CONCEPTIONS DANS PLUSIEURS DOMAINES
-                        <br>
-                        *LIEU : EPO à Ouage 2000
-                        <br>
-                        *DATE DE DEPOT : 15 Mars 2025
-                        <br>
-                        *DATE DE COMPOSITION : 10 Avril 2025
-                    </span>
-                    <a href="https://epo-edu.com/" class="card__button">En savoir plus</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/banner.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Poon Hill, Nepal</span>
-                    <h2 class="card__title">Starry Night</h2>
-                    <a href="#" onclick="togglePopover(event)">Voir le concours</a>
-                       <div id="popover" style="display: none; position: absolute; background: #fff; border: 1px solid #ccc; padding: 10px;">
-                        Voici les infos du concours !
+            <!-- header-left end -->
+          </div>
+          <div class="col-md-8">
+            <!-- header-right start -->
+            <div class="header-right">
+              <!-- main-navigation start -->
+              <div class="main-navigation animated">
+                <!-- navbar start -->
+                <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button
+                        type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target="#navbar-collapse-1"
+                      >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
                     </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div
+                      class="collapse navbar-collapse scrollspy smooth-scroll"
+                      id="navbar-collapse-1"
+                    >
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="active"><a href="index.html">Accueil</a></li>
+                          <li>
+                            <a class="active" href="biblio.html">Bibliothèque et ressources</a>
+                          </li>
+                          <li><a href="concours.html">Concours</a></li>
+                          <li><a href="actualites.html">Actualités</a></li>
+                          <li><a href="propos.html">À propos</a></li>
+                     </ul>
+                    </div>
+                  </div>
+                </nav>
+                <!-- navbar end -->
+              </div>
+              <!-- main-navigation end -->
+            </div>
+            <!-- header-right end -->
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
 
-                </div>
-            </article>
+    <!-- Hero Section -->
+    <section class="concours-hero">
+      <div class="container">
+        <h1>Préparez votre avenir avec les meilleurs concours</h1>
+        <h4>Découvrez une sélection complète de concours nationaux et internationaux pour les élèves de CPGE. Trouvez l'école qui correspond à vos ambitions.</h4>
+      </div>
+    </section>
 
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                </div>
-            </article>
+    <!-- National competitions -->
+    <div class="concours-container">
+      <div class="section-title">
+        <h2>Concours Nationaux</h2>
+      </div>
+      
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.1s">
+          <img src="images/imgccs/epo.jpg" alt="EPO" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-national">National</span>
+            <h3 class="card-title">École Polytechnique de Ouagadougou</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Ouagadougou, Burkina Faso</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 15 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 10 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Formation d'ingénieurs de haut niveau dans divers domaines technologiques et scientifiques.
+            </p>
+            <a href="https://epo-edu.com/" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 2 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.2s">
+          <img src="images/imgccs/2ie.jpg" alt="2iE" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-national">National</span>
+            <h3 class="card-title">Institut International d'Ingénierie (2iE)</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Ouagadougou, Burkina Faso</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 20 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 15 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Excellence en formation d'ingénieurs dans les domaines de l'eau, l'énergie et l'environnement.
+            </p>
+            <a href="https://www.2ie-edu.org/" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 3 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.3s">
+          <img src="images/imgccs/ensb.jpg" alt="ENSB" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-national">National</span>
+            <h3 class="card-title">École Normale Supérieure de Bamako</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Bamako, Mali</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 10 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 5 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Formation d'enseignants et chercheurs de haut niveau dans les disciplines scientifiques.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+      </div>
+    </div>
 
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
+    <!-- International competitions -->
+    <div class="concours-container">
+      <div class="section-title">
+        <h2>Concours Internationaux</h2>
+      </div>
+      
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.1s">
+          <img src="images/imgccs/inphb.png" alt="INPHB" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">INPHB - Côte d'Ivoire</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Yamoussoukro, Côte d'Ivoire</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 25 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 20 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Institut National Polytechnique formant des ingénieurs dans divers domaines technologiques.
+            </p>
+            <a href="https://inphb.ci/concours/ingenieur" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 2 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.2s">
+          <img src="images/imgccs/cc.jpeg" alt="Centrale Casablanca" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">Centrale Casablanca</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Casablanca, Maroc</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 30 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 25 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              École d'ingénieurs franco-marocaine offrant une formation d'excellence en ingénierie.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 3 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.3s">
+          <img src="images/imgccs/esmt.jpeg" alt="ESMT" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">ESMT - Sénégal</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Dakar, Sénégal</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 15 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 10 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              École Supérieure Multinationale des Télécommunications, spécialisée dans les TIC.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 4 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.4s">
+          <img src="images/imgccs/ise.jpg" alt="ISE" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">ISE - Sénégal</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Dakar, Sénégal</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 20 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 15 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Institut des Sciences de l'Environnement, formation en gestion environnementale.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 5 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.5s">
+          <img src="images/imgccs/ens.jpg" alt="ENS" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">ENS - Côte d'Ivoire</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Abidjan, Côte d'Ivoire</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 10 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 5 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              École Normale Supérieure formant des enseignants et chercheurs d'excellence.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+        
+        <!-- Card 6 -->
+        <article class="concours-card animated-card" style="animation-delay: 0.6s">
+          <img src="images/imgccs/um6p.jpeg" alt="UM6P" class="card-image">
+          <div class="card-content">
+            <span class="card-school badge-international">International</span>
+            <h3 class="card-title">UM6P - Maroc</h3>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="fa fa-map-marker detail-icon"></i>
+                <span class="detail-text">Benguérir, Maroc</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-calendar detail-icon"></i>
+                <span class="detail-text">Dépôt: 30 Mars 2025</span>
+              </div>
+              <div class="detail-item">
+                <i class="fa fa-pencil detail-icon"></i>
+                <span class="detail-text">Épreuves: 25 Avril 2025</span>
+              </div>
+            </div>
+            <p class="card-description">
+              Université Mohammed VI Polytechnique, centre d'excellence en recherche et innovation.
+            </p>
+            <a href="#" class="card-button">En savoir plus</a>
+          </div>
+        </article>
+      </div>
+    </div>
 
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          &copy; 2025 CPGE Faso. Tous droits réservés.
+        </div>
+        <div class="footer-links">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
 
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="plugins/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/modernizr.js"></script>
+    <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.appear.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script>
+      // Animation des cartes au défilement
+      $(document).ready(function() {
+        // Vérifie si les éléments sont dans le viewport
+        function checkIfInView() {
+          $('.animated-card').each(function() {
+            var card = $(this);
+            var cardTop = card.offset().top;
+            var windowBottom = $(window).scrollTop() + $(window).height();
             
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <h2>CONCOURS INTERNATIONAUX</h2>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <article class="card__article">
-                <img src="images/imgccs/inphb.png" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">INPHB </h2>
-                    <span class="card__description">Pays: Cote-d'Ivoire
-                        <br>
-                        * FORME DES INGENIEURS DE CONCEPTIONS DANS PLUSIEURS DOMAIN
-                        <br>
-                        *DATE DE DEPOT : 15 Mars 2025
-                        <br>
-                        *DATE DE COMPOSITION : 10 Avril 2025
-                        <br>
-                        *LIEU: 2ie à Kamboinsin ou à l'INPHB*LIEU: 2ie à Kamboinsin ou à l'INPHB
-                    </span>
-                    <a href="https://inphb.ci/concours/ingenieur" class="card__button">En savoir plus</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/cc.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">CENTRALE CASABLANCA</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/esmt.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ESMT</h2>
-                    <span class="card__description">Something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/ise.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ISE</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/ens.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">ENS</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/um6p.jpeg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">UM6P</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/imgccs/x_polytech.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <h2 class="card__title">X-POLYTECHNIQUE</h2>
-                    <span class="card__description">something</span>
-
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">MODAL</h2>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <a href="#" class="card__button">Read More</a>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <div class="center">
-                        <button id="open-popup">clicker</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card__article">
-                <img src="images/epo1.jpg" alt="image" class="card__img">
-                <div class="card__data">
-                    <span class="card__description">Bojein, Serbia</span>
-                    <h2 class="card__title">Path of Peace</h2>
-                    <div class="center">
-                        <button id="open-popup">clicker</button>
-                    </div>
-
-                
-                </div>
-            </article>
-        </div>
-    </div>
-    <div class="popup" id="popup1">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <h2>Ceci est un popup</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt suscipit dolores, laborum excepturi eligendi perspiciatis illo perferendis, porro quidem non dolore harum unde nobis cupiditate repudiandae aspernatur maxime hic odio?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-
-            </p>
-            <div class="controls">
-                <button class="close-btn">fermer</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="popup" id="popup2">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <h2>Ceci est un popup</h2>
-            <p>
-               yoyoyoy
-               yayayaya
-               k,foofo
-               <br>
-               jnfijveiv
-               <br>
-               df,v eovjo
-
-            </p>
-            <div class="controls">
-                <button class="close-btn">fermer</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- cartes end -->
-    <!-- JAVASCRIPT GENERAL-->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
-
-        <!-- Custom JS -->
-        <script src="js/custom.js"></script>
-        <script src="popup.js"></script>
-
- 
-
-</body>
+            if (windowBottom > cardTop) {
+              card.css('opacity', '1').css('transform', 'translateY(0)');
+            }
+          });
+        }
+        
+        // Vérifie au chargement et au défilement
+        $(window).on('scroll load', checkIfInView);
+        
+        // Animation du survol des cartes
+        $('.concours-card').hover(
+          function() {
+            $(this).css('transform', 'translateY(-10px)');
+          },
+          function() {
+            $(this).css('transform', 'translateY(0)');
+          }
+        );
+      });
+    </script>
+  </body>
 </html>
