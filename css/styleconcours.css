@@ -1,460 +1,335 @@
-/* CSS pour la page Concours CPGE Faso */
 
-/* Variables CSS pour cohérence */
+/* ================ Global Styles ================ */
 :root {
     --primary-color: #1e3c72;
     --secondary-color: #2a5298;
-    --accent-color: #356DE8;
-    --text-dark: #333;
-    --text-light: #666;
+    --accent-color: #0A94DB;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --text-color: #495057;
     --white: #ffffff;
-    --gray-light: #f8f9fa;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
-    --border-radius: 12px;
-    --transition: all 0.3s ease;
-}
-
-/* Reset et base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
     line-height: 1.6;
-    color: var(--text-dark);
-    background-color: #f8f9fa;
-    padding-top: 80px; /* Compenser le header fixe */
+    overflow-x: hidden;
 }
 
- 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-    padding: 120px 0 80px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+
+
+/* ================ Hero Section ================ */
+.concours-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 120px 0 100px;
     color: var(--white);
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.hero-section::before {
+.concours-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    background: url('images/dots-pattern.png') repeat;
+    opacity: 0.05;
 }
 
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.concours-hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-.hero-subtitle {
+.concours-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.8s ease;
+}
+
+.concours-hero h4 {
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto 40px;
-    line-height: 1.7;
+    line-height: 1.6;
+    font-weight: 300;
     opacity: 0.9;
-    position: relative;
-    z-index: 1;
+    animation: fadeIn 1s ease 0.3s forwards;
 }
 
-/* Section Titles */
+/* ================ Section Titles ================ */
 .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
     text-align: center;
-    margin-bottom: 50px;
+    margin: 80px 0 50px;
     position: relative;
 }
 
-.section-title::after {
+.section-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    display: inline-block;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.section-title h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
+    height: 3px;
+    background: var(--accent-color);
 }
 
-/* Cards Container */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
+/* ================ Cards Container ================ */
+.concours-container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px 80px;
 }
 
-/* Competition Cards */
-.competition-card {
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* ================ Card Styles ================ */
+.concours-card {
     background: var(--white);
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     transform: translateY(0);
 }
 
-.competition-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: var(--shadow-hover);
+.concours-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .card-image {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-}
-
-.card-image img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
-    transition: var(--transition);
+    transition: transform 0.5s ease;
 }
 
-.competition-card:hover .card-image img {
-    transform: scale(1.1);
+.concours-card:hover .card-image {
+    transform: scale(1.05);
 }
 
-.card-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-    color: var(--white);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-}
-
-.card-badge[data-country="National"] {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-}
-
-/* Card Content */
 .card-content {
     padding: 25px;
+    position: relative;
+}
+
+.card-school {
+    position: absolute;
+    top: -15px;
+    left: 25px;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .card-title {
-    font-size: 1.4rem;
-    font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 15px;
-    line-height: 1.3;
+    font-size: 1.4rem;
+    margin: 15px 0 10px;
+    font-weight: 700;
 }
 
 .card-description {
-    color: var(--text-light);
-    margin-bottom: 20px;
-    line-height: 1.6;
+    color: var(--text-color);
     font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.7;
 }
 
-.card-info {
-    margin-bottom: 25px;
+.card-details {
+    margin-bottom: 20px;
 }
 
-.info-item {
+.detail-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 10px;
-    font-size: 0.9rem;
-    color: var(--text-light);
 }
 
-.info-item i {
-    width: 20px;
+.detail-icon {
     color: var(--accent-color);
-    margin-right: 12px;
+    margin-right: 10px;
     font-size: 0.9rem;
+    margin-top: 3px;
 }
 
-/* Card Buttons */
+.detail-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    flex: 1;
+}
+
 .card-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--primary-color);
     color: var(--white);
+    border-radius: 30px;
     text-decoration: none;
-    border: none;
-    border-radius: 25px;
     font-weight: 600;
     font-size: 0.9rem;
-    cursor: pointer;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
 }
 
 .card-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(53, 109, 232, 0.4);
-    color: var(--white);
-}
-
-.card-button:disabled {
-    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.card-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.card-button:hover::before {
-    left: 100%;
-}
-
-/* Modals */
-.modal-content {
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.modal-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    padding: 20px 25px;
-}
-
-.modal-title {
-    font-weight: 600;
-    font-size: 1.3rem;
-}
-
-.modal-body {
-    padding: 25px;
-}
-
-.modal-body h6 {
+    background-color: transparent;
     color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 10px;
-    margin-top: 20px;
 }
 
-.modal-body h6:first-child {
-    margin-top: 0;
+/* ================ National/International Badges ================ */
+.badge-national {
+    background-color: #28a745;
 }
 
-.badge {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    border-radius: 15px;
+.badge-international {
+    background-color: #17a2b8;
 }
 
-.modal-footer {
-    padding: 20px 25px;
-    border-top: 1px solid #eee;
+/* ================ Animations ================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Animations */
-.fade-in {
+@keyframes fadeInDown {
+    from {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.scroll-animate {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.scroll-animate.animate {
+    transform: translateY(-20px);
+    }
+    to {
     opacity: 1;
     transform: translateY(0);
+    }
+}
+
+.animated-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 @keyframes fadeInUp {
     to {
-        opacity: 1;
-        transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
     }
 }
 
-/* Responsive Design */
+/* ================ Responsive Styles ================ */
 @media (max-width: 992px) {
-    .cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
+    .concours-hero h1 {
+    font-size: 2.4rem;
     }
     
-    .hero-title {
-        font-size: 2.8rem;
+    .concours-hero h4 {
+    font-size: 1.1rem;
     }
     
-    .section-title {
-        font-size: 2.2rem;
+    .section-title h2 {
+    font-size: 1.8rem;
     }
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 100px 0 60px;
+    .concours-hero {
+    padding: 100px 0 80px;
     }
     
-    .hero-title {
-        font-size: 2.2rem;
+    .concours-hero h1 {
+    font-size: 2rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.1rem;
-        padding: 0 20px;
+    .cards-grid {
+    grid-template-columns: 1fr;
     }
     
-    .cards-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-    
-    .competition-card:hover {
-        transform: translateY(-8px) scale(1.01);
-    }
-    
-    .main-navigation .navbar-default .navbar-nav > li > a {
-        padding: 12px 15px;
-        margin: 5px 0;
-        border-radius: 8px;
+    .section-title h2 {
+    font-size: 1.6rem;
     }
 }
 
 @media (max-width: 576px) {
-    .hero-title {
-        font-size: 1.8rem;
+    .concours-hero {
+    padding: 80px 0 60px;
     }
     
-    .hero-subtitle {
-        font-size: 1rem;
+    .concours-hero h1 {
+    font-size: 1.8rem;
     }
     
-    .section-title {
-        font-size: 1.7rem;
-    }
-    
-    .card-content {
-        padding: 20px;
-    }
-    
-    .card-title {
-        font-size: 1.2rem;
-    }
-    
-    .modal-dialog {
-        margin: 10px;
+    .concours-hero h4 {
+    font-size: 1rem;
     }
 }
 
-/* Fixed Header States */
-.fixed-header-on .header {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    padding: 8px 0;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+/* ================ Footer ================ */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 30px 0;
 }
 
-.fixed-header-on .brand a {
-    font-size: 24px;
-}
-
-.fixed-header-on .logo img {
-    width: 40px;
-    height: 40px;
-}
-
-/* Loading States */
-.competition-card.loading {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.competition-card.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.8);
+.footer-content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+.footer-links {
+    display: flex;
+    gap: 20px;
 }
 
-/* Focus states for accessibility */
-.card-button:focus,
-.main-navigation .navbar-default .navbar-nav > li > a:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+.footer-links a {
+    color: var(--white);
+    opacity: 0.7;
 }
 
-/* Print styles */
-@media print {
-    .header,
-    .card-button,
-    .modal {
-        display: none !important;
-    }
-    
-    .competition-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
 }

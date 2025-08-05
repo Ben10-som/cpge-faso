@@ -175,110 +175,6 @@
   }
 }
 
-.header {
-  color: #020202;
-  background-color: rgba(255, 255, 255, 1);
-  padding: 10px 0;
-  transition: all 0.2s ease-in-out;
-}
-
-/* 
-je veux que tu gardes ce style pour la page index.html pour entete ,
- */
-/* Fixed Header */
-.fixed-header-on .header {
-  background-color: rgba(255, 255, 255, 1);
-  padding: 5px 0;
-}
-
-.fixed-header-on .brand {
-  font-size: 24px;
-}
-
-.fixed-header-on .logo {
-  transform: scale(0.8);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-modal-header {
-  background-color: #626262;
-  color: #fff;
-}
-
-.modal-header h4 {
-  color: #fff;
-}
-
-.modal-header .close {
-  font-weight: 300;
-  color: #fff;
-  text-shadow: none;
-  opacity: 1;
-}
-.section-header {
-  margin-bottom: 50px;
-}
-
-.section-header .divider {
-  width: 80px;
-  height: 3px;
-  background: #0A94DB;
-  margin: 20px auto;
-}
-
-
-@media (max-width: 767px) {
-  .header.navbar-fixed-top {
-    position: absolute;
-  }
-    }
-
-
-
-/* Navigation */
-.main-navigation .navbar {
-  margin-bottom: 0;
-}
-
-.main-navigation .navbar-default {
-  background-color: transparent;
-  border: none;
-}
-
-.main-navigation .navbar-default .navbar-nav > li > a {
-  padding: 10px 20px;
-  color: #949494;
-  font-weight: 700;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-}
-
-.main-navigation .navbar-default .navbar-nav > li.active > a {
-  background-color: transparent;
-  color: #356DE8;
-}
-
-.main-navigation .navbar-default .navbar-nav > li > a:hover,
-.main-navigation .navbar-default .navbar-nav > li.active > a:hover {
-  color: #306AE8;
-}
-
-/* Fixed Header */
-.fixed-header-on .header {
-  background-color: rgba(255, 255, 255, 1);
-  padding: 5px 0;
-}
-
-.fixed-header-on .brand {
-  font-size: 24px;
-}
-
-.fixed-header-on .logo {
-  transform: scale(0.8);
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 /* Section Liens Importants */
 .liens-importants {
@@ -314,6 +210,7 @@ modal-header {
     display: block;
     text-align: center;
 }
+
 
 .lien-card h3 {
     color: #2a5298;

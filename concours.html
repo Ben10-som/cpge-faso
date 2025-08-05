@@ -11,433 +11,96 @@
     <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="css/animations.css" rel="stylesheet" />
     <link href="css/common.css" rel="stylesheet" />
-    <style>
-      /* ================ Global Styles ================ */
-      :root {
-        --primary-color: #1e3c72;
-        --secondary-color: #2a5298;
-        --accent-color: #0A94DB;
-        --light-color: #f8f9fa;
-        --dark-color: #343a40;
-        --text-color: #495057;
-        --white: #ffffff;
-      }
-      
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--text-color);
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-      
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-      }
-      
-      a {
-        transition: all 0.3s ease;
-      }
-      
-      /* ================ Header ================ */
-      .header {
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        background-color: var(--white);
-      }
-      
-      .navbar-default .navbar-nav > li > a {
-        font-weight: 600;
-        letter-spacing: 0.5px;
-      }
-      
-      .navbar-default .navbar-nav > li.active > a {
-        color: var(--accent-color);
-      }
-      
-      /* ================ Hero Section ================ */
-      .concours-hero {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        padding: 120px 0 100px;
-        color: var(--white);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .concours-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('images/dots-pattern.png') repeat;
-        opacity: 0.05;
-      }
-      
-      .concours-hero .container {
-        position: relative;
-        z-index: 2;
-      }
-      
-      .concours-hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 25px;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        animation: fadeInDown 0.8s ease;
-      }
-      
-      .concours-hero h4 {
-        font-size: 1.3rem;
-        max-width: 800px;
-        margin: 0 auto 40px;
-        line-height: 1.6;
-        font-weight: 300;
-        opacity: 0.9;
-        animation: fadeIn 1s ease 0.3s forwards;
-      }
-      
-      /* ================ Section Titles ================ */
-      .section-title {
-        text-align: center;
-        margin: 80px 0 50px;
-        position: relative;
-      }
-      
-      .section-title h2 {
-        font-size: 2.2rem;
-        color: var(--primary-color);
-        display: inline-block;
-        padding-bottom: 15px;
-        position: relative;
-      }
-      
-      .section-title h2::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--accent-color);
-      }
-      
-      /* ================ Cards Container ================ */
-      .concours-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px 80px;
-      }
-      
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-      }
-      
-      /* ================ Card Styles ================ */
-      .concours-card {
-        background: var(--white);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        transform: translateY(0);
-      }
-      
-      .concours-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      }
-      
-      .card-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      
-      .concours-card:hover .card-image {
-        transform: scale(1.05);
-      }
-      
-      .card-content {
-        padding: 25px;
-        position: relative;
-      }
-      
-      .card-school {
-        position: absolute;
-        top: -15px;
-        left: 25px;
-        background: var(--accent-color);
-        color: var(--white);
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      
-      .card-title {
-        color: var(--primary-color);
-        font-size: 1.4rem;
-        margin: 15px 0 10px;
-        font-weight: 700;
-      }
-      
-      .card-description {
-        color: var(--text-color);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-        line-height: 1.7;
-      }
-      
-      .card-details {
-        margin-bottom: 20px;
-      }
-      
-      .detail-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 10px;
-      }
-      
-      .detail-icon {
-        color: var(--accent-color);
-        margin-right: 10px;
-        font-size: 0.9rem;
-        margin-top: 3px;
-      }
-      
-      .detail-text {
-        font-size: 0.9rem;
-        color: var(--text-color);
-        flex: 1;
-      }
-      
-      .card-button {
-        display: inline-block;
-        padding: 10px 25px;
-        background-color: var(--primary-color);
-        color: var(--white);
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        border: 2px solid var(--primary-color);
-      }
-      
-      .card-button:hover {
-        background-color: transparent;
-        color: var(--primary-color);
-      }
-      
-      /* ================ National/International Badges ================ */
-      .badge-national {
-        background-color: #28a745;
-      }
-      
-      .badge-international {
-        background-color: #17a2b8;
-      }
-      
-      /* ================ Animations ================ */
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .animated-card {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.6s ease forwards;
-      }
-      
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      /* ================ Responsive Styles ================ */
-      @media (max-width: 992px) {
-        .concours-hero h1 {
-          font-size: 2.4rem;
-        }
-        
-        .concours-hero h4 {
-          font-size: 1.1rem;
-        }
-        
-        .section-title h2 {
-          font-size: 1.8rem;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .concours-hero {
-          padding: 100px 0 80px;
-        }
-        
-        .concours-hero h1 {
-          font-size: 2rem;
-        }
-        
-        .cards-grid {
-          grid-template-columns: 1fr;
-        }
-        
-        .section-title h2 {
-          font-size: 1.6rem;
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .concours-hero {
-          padding: 80px 0 60px;
-        }
-        
-        .concours-hero h1 {
-          font-size: 1.8rem;
-        }
-        
-        .concours-hero h4 {
-          font-size: 1rem;
-        }
-      }
-      
-      /* ================ Footer ================ */
-      footer {
-        background-color: var(--dark-color);
-        color: var(--white);
-        padding: 30px 0;
-      }
-      
-      .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-      
-      .footer-links {
-        display: flex;
-        gap: 20px;
-      }
-      
-      .footer-links a {
-        color: var(--white);
-        opacity: 0.7;
-      }
-      
-      .footer-links a:hover {
-        opacity: 1;
-        text-decoration: none;
-      }
-      
-      .copyright {
-        opacity: 0.7;
-        font-size: 0.9rem;
-      }
-    </style>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/styleconcours.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    
   </head>
   <body class="no-trans">
     <!-- scrollToTop -->
     <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
-    <!-- header start -->
-    <header class="header fixed clearfix navbar navbar-fixed-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <!-- header-left start -->
-            <div class="header-left">
-              <!-- logo -->
-              <div class="logo smooth-scroll">
-                <a href="#banner"
-                  ><img id="logo" src="images/logo.png" alt="CPGE Faso"
-                /></a>
-              </div>
-              <!-- name-and-slogan -->
-              <div class="logo-section smooth-scroll">
-                <div class="brand"><a href="#banner">CPGE Faso</a></div>
-              </div>
-            </div>
-            <!-- header-left end -->
-          </div>
-          <div class="col-md-8">
-            <!-- header-right start -->
-            <div class="header-right">
-              <!-- main-navigation start -->
-              <div class="main-navigation animated">
-                <!-- navbar start -->
-                <nav class="navbar navbar-default" role="navigation">
-                  <div class="container-fluid">
-                    <!-- Toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button
-                        type="button"
-                        class="navbar-toggle"
-                        data-toggle="collapse"
-                        data-target="#navbar-collapse-1"
-                      >
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div
-                      class="collapse navbar-collapse scrollspy smooth-scroll"
-                      id="navbar-collapse-1"
-                    >
-                      <ul class="nav navbar-nav navbar-right">
-                          <li class="active"><a href="index.html">Accueil</a></li>
-                          <li>
-                            <a class="active" href="biblio.html">Bibliothèque et ressources</a>
-                          </li>
-                          <li><a href="concours.html">Concours</a></li>
-                          <li><a href="actualites.html">Actualités</a></li>
-                          <li><a href="propos.html">À propos</a></li>
-                     </ul>
-                    </div>
-                  </div>
-                </nav>
-                <!-- navbar end -->
-              </div>
-              <!-- main-navigation end -->
-            </div>
-            <!-- header-right end -->
-          </div>
-        </div>
-      </div>
-    </header>
+  <!-- header start -->
+  		<header class="header fixed clearfix navbar navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+
+						<!-- header-left start --> 
+						<div class="header-left">
+
+							<!-- logo -->
+							<div class="logo smooth-scroll">
+								<a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy" /></a>
+							</div>
+
+							<!-- name-and-slogan -->
+							<div class="logo-section smooth-scroll">
+								<div class="brand"><a href="#banner">CPGE Faso</a></div>								
+							</div>
+
+						</div>
+						<!-- header-left end -->
+
+					</div>
+					<div class="col-md-8">
+
+						<!-- header-right start --> 
+						<div class="header-right">
+
+							<!-- main-navigation start --> 
+							<div class="main-navigation animated">
+
+								<!-- navbar start --> 
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+
+										<!-- Toggle get grouped for better mobile display -->
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<li><a href="index.html">Accueil</a></li>
+												<li ><a href="biblio.html">Bibliothèque et ressources</a></li>
+												<li class="active"><a href="concours.html">Concours</a></li>
+												<li ><a href="actualites.html">Actualités</a></li>
+												<li><a href="propos.html">À propos</a></li>
+											</ul>
+										</div>
+
+									</div>
+								</nav>
+								<!-- navbar end -->
+
+							</div>
+							<!-- main-navigation end -->
+
+						</div>
+						<!-- header-right end -->
+
+					</div>
+				</div>
+			</div>
+		</header>
     <!-- header end -->
 
     <!-- Hero Section -->
     <section class="concours-hero">
       <div class="container">
+        <style>
+          .concours-hero h1,
+          .concours-hero h4 {
+            color: #fff;
+          }
+        </style>
         <h1>Préparez votre avenir avec les meilleurs concours</h1>
         <h4>Découvrez une sélection complète de concours nationaux et internationaux pour les élèves de CPGE. Trouvez l'école qui correspond à vos ambitions.</h4>
       </div>
